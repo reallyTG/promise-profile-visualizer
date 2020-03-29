@@ -1,0 +1,124 @@
+{
+    "promises": {
+        "0": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112628099151621",
+            "endTime": "112628527392131",
+            "elapsedTime": "428240510"
+        },
+        "1": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112628104596213",
+            "endTime": "112628531604243",
+            "elapsedTime": "427008030"
+        },
+        "2": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112628558315312",
+            "endTime": "112628844892253",
+            "elapsedTime": "286576941"
+        },
+        "3": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112628561908990",
+            "endTime": "112628848858030",
+            "elapsedTime": "286949040"
+        },
+        "4": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112628867025189",
+            "endTime": "112629079184097",
+            "elapsedTime": "212158908"
+        },
+        "5": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112628869276638",
+            "endTime": "112629081437403",
+            "elapsedTime": "212160765"
+        },
+        "6": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112629093615434",
+            "endTime": "112629386150979",
+            "elapsedTime": "292535545"
+        },
+        "7": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112629096514539",
+            "endTime": "112629391059637",
+            "elapsedTime": "294545098"
+        },
+        "8": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112629412488896",
+            "endTime": "112629601555391",
+            "elapsedTime": "189066495"
+        },
+        "9": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112629415796347",
+            "endTime": "112629603397916",
+            "elapsedTime": "187601569"
+        },
+        "10": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112629613399809",
+            "endTime": "112629790283910",
+            "elapsedTime": "176884101"
+        },
+        "11": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112629615904702",
+            "endTime": "112629792421060",
+            "elapsedTime": "176516358"
+        },
+        "12": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112629804370859",
+            "endTime": "112629986268961",
+            "elapsedTime": "181898102"
+        },
+        "13": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112629807132003",
+            "endTime": "112629988504375",
+            "elapsedTime": "181372372"
+        },
+        "14": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112629999576741",
+            "endTime": "112630172959534",
+            "elapsedTime": "173382793"
+        },
+        "15": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112630001332763",
+            "endTime": "112630174902998",
+            "elapsedTime": "173570235"
+        },
+        "16": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112630186819907",
+            "endTime": "112630352829840",
+            "elapsedTime": "166009933"
+        },
+        "17": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112630189016348",
+            "endTime": "112630354472566",
+            "elapsedTime": "165456218"
+        },
+        "18": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "112630362666606",
+            "endTime": "112630550018492",
+            "elapsedTime": "187351886"
+        },
+        "19": {
+            "source": "(sequential.js:5:9:5:23)",
+            "startTime": "112630364056691",
+            "endTime": "112630551718791",
+            "elapsedTime": "187662100"
+        }
+    }
+}
