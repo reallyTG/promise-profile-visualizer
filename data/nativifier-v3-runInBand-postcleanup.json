@@ -1,0 +1,1930 @@
+{
+    "promises": {
+        "0": {
+            "source": "(node_modules/jest-config/build/index.js:217:18:217:77)",
+            "startTime": "46220934644904",
+            "endTime": "46221006054813",
+            "elapsedTime": "71409909"
+        },
+        "1": {
+            "source": "(node_modules/jest-config/build/index.js:401:26:401:61)",
+            "startTime": "46220989849868",
+            "endTime": "46221238072403",
+            "elapsedTime": "248222535"
+        },
+        "2": {
+            "source": "(node_modules/@jest/core/build/cli/index.js:203:59:204:45)",
+            "startTime": "46220993639360",
+            "endTime": "46221364892943",
+            "elapsedTime": "371253583"
+        },
+        "3": {
+            "source": "(node_modules/jest/node_modules/jest-cli/build/cli/index.js:216:37:216:78)",
+            "startTime": "46220996522989",
+            "endTime": "46467662208575",
+            "elapsedTime": "246665685586"
+        },
+        "4": {
+            "source": "(node_modules/jest-config/build/index.js:217:18:217:77)",
+            "startTime": "46221276321848",
+            "endTime": "46221292202053",
+            "elapsedTime": "15880205"
+        },
+        "5": {
+            "source": "(node_modules/jest-config/build/index.js:421:27:452:6)",
+            "startTime": "46221287853902",
+            "endTime": "46221337419936",
+            "elapsedTime": "49566034"
+        },
+        "6": {
+            "source": "(node_modules/jest-haste-map/build/index.js:492:18:492:39)",
+            "startTime": "46224152717714",
+            "endTime": "46224164061810",
+            "elapsedTime": "11344096"
+        },
+        "7": {
+            "source": "(node_modules/jest-haste-map/build/index.js:415:22:415:48)",
+            "startTime": "46224155888662",
+            "endTime": "46224528072309",
+            "elapsedTime": "372183647"
+        },
+        "8": {
+            "source": "(node_modules/@jest/core/build/cli/index.js:296:9:296:39)",
+            "startTime": "46224157600400",
+            "endTime": "46225135823258",
+            "elapsedTime": "978222858"
+        },
+        "9": {
+            "source": "(node_modules/@jest/core/build/cli/index.js:278:20:299:4)",
+            "startTime": "46224159280769",
+            "endTime": "46225183545303",
+            "elapsedTime": "1024264534"
+        },
+        "10": {
+            "source": "(node_modules/@jest/core/build/cli/index.js:356:41:360:4)",
+            "startTime": "46224160875262",
+            "endTime": "46225193601496",
+            "elapsedTime": "1032726234"
+        },
+        "11": {
+            "source": "(node_modules/@jest/core/build/cli/index.js:224:3:230:4)",
+            "startTime": "46224162464388",
+            "endTime": "46467661275898",
+            "elapsedTime": "243498811510"
+        },
+        "12": {
+            "source": "(node_modules/jest-haste-map/build/index.js:425:22:425:53)",
+            "startTime": "46224970643127",
+            "endTime": "46224981405463",
+            "elapsedTime": "10762336"
+        },
+        "13": {
+            "source": "(node_modules/jest-haste-map/build/index.js:447:9:447:36)",
+            "startTime": "46225132997774",
+            "endTime": "46225134591637",
+            "elapsedTime": "1593863"
+        },
+        "14": {
+            "source": "(node_modules/@jest/core/build/runJest.js:214:16:214:77)",
+            "startTime": "46225322398213",
+            "endTime": "46225337667338",
+            "elapsedTime": "15269125"
+        },
+        "15": {
+            "source": "(node_modules/@jest/core/build/runJest.js:323:23:330:8)",
+            "startTime": "46225333369447",
+            "endTime": "46225403918579",
+            "elapsedTime": "70549132"
+        },
+        "16": {
+            "source": "(node_modules/@jest/core/build/runJest.js:321:23:337:4)",
+            "startTime": "46225334996126",
+            "endTime": "46225415064627",
+            "elapsedTime": "80068501"
+        },
+        "17": {
+            "source": "(node_modules/@jest/core/build/cli/index.js:371:7:378:8)",
+            "startTime": "46225336401377",
+            "endTime": "46467600329892",
+            "elapsedTime": "242263928515"
+        },
+        "18": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225349368640",
+            "endTime": "46225374948855",
+            "elapsedTime": "25580215"
+        },
+        "19": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225351746855",
+            "endTime": "46225376656485",
+            "elapsedTime": "24909630"
+        },
+        "20": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225353489503",
+            "endTime": "46225378061261",
+            "elapsedTime": "24571758"
+        },
+        "21": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225354999991",
+            "endTime": "46225381818430",
+            "elapsedTime": "26818439"
+        },
+        "22": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225356454615",
+            "endTime": "46225384388428",
+            "elapsedTime": "27933813"
+        },
+        "23": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225358271565",
+            "endTime": "46225385838054",
+            "elapsedTime": "27566489"
+        },
+        "24": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225360098632",
+            "endTime": "46225387166486",
+            "elapsedTime": "27067854"
+        },
+        "25": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225361691013",
+            "endTime": "46225388517954",
+            "elapsedTime": "26826941"
+        },
+        "26": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225365343208",
+            "endTime": "46225390288646",
+            "elapsedTime": "24945438"
+        },
+        "27": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225367348518",
+            "endTime": "46225392565432",
+            "elapsedTime": "25216914"
+        },
+        "28": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225369100689",
+            "endTime": "46225394701474",
+            "elapsedTime": "25600785"
+        },
+        "29": {
+            "source": "(node_modules/jest-watcher/build/JestHooks.js:60:24:64:10)",
+            "startTime": "46225370815787",
+            "endTime": "46225396465778",
+            "elapsedTime": "25649991"
+        },
+        "30": {
+            "source": "(node_modules/@jest/core/build/runJest.js:226:27:234:4)",
+            "startTime": "46225372867592",
+            "endTime": "46225398221741",
+            "elapsedTime": "25354149"
+        },
+        "31": {
+            "source": "(node_modules/@jest/core/build/runJest.js:338:14:338:44)",
+            "startTime": "46225432578148",
+            "endTime": "46225452740144",
+            "elapsedTime": "20161996"
+        },
+        "32": {
+            "source": "(node_modules/@jest/core/build/runGlobalHook.js:58:5:85:6)",
+            "startTime": "46225489987358",
+            "endTime": "46225499418422",
+            "elapsedTime": "9431064"
+        },
+        "33": {
+            "source": "(node_modules/@jest/core/build/runJest.js:401:5:405:7)",
+            "startTime": "46225492287516",
+            "endTime": "46225503575178",
+            "elapsedTime": "11287662"
+        },
+        "34": {
+            "source": "(node_modules/p-each-series/index.js:8:3:8:39)",
+            "startTime": "46225495306764",
+            "endTime": "46225497328514",
+            "elapsedTime": "2021750"
+        },
+        "35": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:240:5:243:7)",
+            "startTime": "46225724936998",
+            "endTime": "46225733757439",
+            "elapsedTime": "8820441"
+        },
+        "36": {
+            "source": "(node_modules/@jest/core/build/runJest.js:414:19:420:41)",
+            "startTime": "46225726805278",
+            "endTime": "46467524747348",
+            "elapsedTime": "241797942070"
+        },
+        "37": {
+            "source": "(node_modules/jest-runner/build/index.js:112:12:120:11)",
+            "startTime": "46225747192954",
+            "endTime": "46463522476965",
+            "elapsedTime": "237775284011"
+        },
+        "38": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:260:11:269:12)",
+            "startTime": "46225749709816",
+            "endTime": "46463522875523",
+            "elapsedTime": "237773165707"
+        },
+        "39": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46225796877572",
+            "endTime": "46225798874867",
+            "elapsedTime": "1997295"
+        },
+        "40": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46228152632312",
+            "endTime": "46228155448323",
+            "elapsedTime": "2816011"
+        },
+        "41": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46228154292752",
+            "endTime": "46237814389935",
+            "elapsedTime": "9660097183"
+        },
+        "42": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46237655900689",
+            "endTime": "46237753187134",
+            "elapsedTime": "97286445"
+        },
+        "43": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46237657379003",
+            "endTime": "46237756144005",
+            "elapsedTime": "98765002"
+        },
+        "44": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46237658065750",
+            "endTime": "46237756937957",
+            "elapsedTime": "98872207"
+        },
+        "45": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46237658601602",
+            "endTime": "46237772943559",
+            "elapsedTime": "114341957"
+        },
+        "46": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46237757545482",
+            "endTime": "46237761851794",
+            "elapsedTime": "4306312"
+        },
+        "47": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46237805884946",
+            "endTime": "46237806952475",
+            "elapsedTime": "1067529"
+        },
+        "48": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46237847327859",
+            "endTime": "46237850190206",
+            "elapsedTime": "2862347"
+        },
+        "49": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46237855014156",
+            "endTime": "46237856306945",
+            "elapsedTime": "1292789"
+        },
+        "50": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46237949695225",
+            "endTime": "46237951170336",
+            "elapsedTime": "1475111"
+        },
+        "51": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46237950536995",
+            "endTime": "46245415125895",
+            "elapsedTime": "7464588900"
+        },
+        "52": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46244539861657",
+            "endTime": "46244641138434",
+            "elapsedTime": "101276777"
+        },
+        "53": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46244540780089",
+            "endTime": "46245299701926",
+            "elapsedTime": "758921837"
+        },
+        "54": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46244541321109",
+            "endTime": "46245300502744",
+            "elapsedTime": "759181635"
+        },
+        "55": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46244541786520",
+            "endTime": "46245367374639",
+            "elapsedTime": "825588119"
+        },
+        "56": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46244543764392",
+            "endTime": "46244570783781",
+            "elapsedTime": "27019389"
+        },
+        "57": {
+            "source": "(lib/options/fields/name.test.js:39:20:39:59)",
+            "startTime": "46244547769132",
+            "endTime": "46244548828117",
+            "elapsedTime": "1058985"
+        },
+        "58": {
+            "source": "(lib/options/fields/name.test.js:44:20:44:59)",
+            "startTime": "46244559820561",
+            "endTime": "46244560953460",
+            "elapsedTime": "1132899"
+        },
+        "59": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46244572391319",
+            "endTime": "46244606728047",
+            "elapsedTime": "34336728"
+        },
+        "60": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "46244576041482",
+            "endTime": "46244578472496",
+            "elapsedTime": "2431014"
+        },
+        "61": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "46244576938325",
+            "endTime": "46244579162088",
+            "elapsedTime": "2223763"
+        },
+        "62": {
+            "source": "(lib/options/fields/name.test.js:59:5:59:30)",
+            "startTime": "46244577551234",
+            "endTime": "46244579761464",
+            "elapsedTime": "2210230"
+        },
+        "63": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "46244591413285",
+            "endTime": "46244593676018",
+            "elapsedTime": "2262733"
+        },
+        "64": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "46244592089829",
+            "endTime": "46244594265599",
+            "elapsedTime": "2175770"
+        },
+        "65": {
+            "source": "(lib/options/fields/name.test.js:66:5:66:34)",
+            "startTime": "46244592640418",
+            "endTime": "46244594757119",
+            "elapsedTime": "2116701"
+        },
+        "66": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "46244599186823",
+            "endTime": "46244602350319",
+            "elapsedTime": "3163496"
+        },
+        "67": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "46244600285612",
+            "endTime": "46244602967793",
+            "elapsedTime": "2682181"
+        },
+        "68": {
+            "source": "(lib/options/fields/name.test.js:70:20:70:45)",
+            "startTime": "46244601148403",
+            "endTime": "46244603629535",
+            "elapsedTime": "2481132"
+        },
+        "69": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46244607906507",
+            "endTime": "46244640383991",
+            "elapsedTime": "32477484"
+        },
+        "70": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "46244610602518",
+            "endTime": "46244613013088",
+            "elapsedTime": "2410570"
+        },
+        "71": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "46244611321461",
+            "endTime": "46244613610088",
+            "elapsedTime": "2288627"
+        },
+        "72": {
+            "source": "(lib/options/fields/name.test.js:76:20:76:62)",
+            "startTime": "46244612014748",
+            "endTime": "46244614199219",
+            "elapsedTime": "2184471"
+        },
+        "73": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "46244618684759",
+            "endTime": "46244622222425",
+            "elapsedTime": "3537666"
+        },
+        "74": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "46244619838288",
+            "endTime": "46244623417296",
+            "elapsedTime": "3579008"
+        },
+        "75": {
+            "source": "(lib/options/fields/name.test.js:82:20:82:62)",
+            "startTime": "46244620617851",
+            "endTime": "46244624407615",
+            "elapsedTime": "3789764"
+        },
+        "76": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "46244630785042",
+            "endTime": "46244635363765",
+            "elapsedTime": "4578723"
+        },
+        "77": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "46244631672353",
+            "endTime": "46244636718843",
+            "elapsedTime": "5046490"
+        },
+        "78": {
+            "source": "(lib/options/fields/name.test.js:88:20:88:62)",
+            "startTime": "46244632345455",
+            "endTime": "46244637480408",
+            "elapsedTime": "5134953"
+        },
+        "79": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46245300973496",
+            "endTime": "46245333591545",
+            "elapsedTime": "32618049"
+        },
+        "80": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46245407764949",
+            "endTime": "46245408443174",
+            "elapsedTime": "678225"
+        },
+        "81": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46245448349983",
+            "endTime": "46245449305235",
+            "elapsedTime": "955252"
+        },
+        "82": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46245451315753",
+            "endTime": "46245452099588",
+            "elapsedTime": "783835"
+        },
+        "83": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46245515944369",
+            "endTime": "46245517209426",
+            "elapsedTime": "1265057"
+        },
+        "84": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46245516646062",
+            "endTime": "46256721807158",
+            "elapsedTime": "11205161096"
+        },
+        "85": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46256496911456",
+            "endTime": "46256619822603",
+            "elapsedTime": "122911147"
+        },
+        "86": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46256498262706",
+            "endTime": "46256621552747",
+            "elapsedTime": "123290041"
+        },
+        "87": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46256499000437",
+            "endTime": "46256622777002",
+            "elapsedTime": "123776565"
+        },
+        "88": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46256499555063",
+            "endTime": "46256639079658",
+            "elapsedTime": "139524595"
+        },
+        "89": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46256501053017",
+            "endTime": "46256526500885",
+            "elapsedTime": "25447868"
+        },
+        "90": {
+            "source": "(lib/options/fields/icon.test.js:32:5:32:72)",
+            "startTime": "46256519174818",
+            "endTime": "46256522466739",
+            "elapsedTime": "3291921"
+        },
+        "91": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46256528853280",
+            "endTime": "46256618724848",
+            "elapsedTime": "89871568"
+        },
+        "92": {
+            "source": "(lib/options/fields/icon.js:266:12:266:94)",
+            "startTime": "46256532919619",
+            "endTime": "46256535951753",
+            "elapsedTime": "3032134"
+        },
+        "93": {
+            "source": "(lib/options/fields/icon.test.js:38:20:38:62)",
+            "startTime": "46256534737934",
+            "endTime": "46256536589007",
+            "elapsedTime": "1851073"
+        },
+        "94": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46256553910712",
+            "endTime": "46256617532702",
+            "elapsedTime": "63621990"
+        },
+        "96": {
+            "source": "(lib/options/fields/icon.test.js:45:22:45:64)",
+            "startTime": "46256603049050",
+            "endTime": "46256605282506",
+            "elapsedTime": "2233456"
+        },
+        "97": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46256623778122",
+            "endTime": "46256629724364",
+            "elapsedTime": "5946242"
+        },
+        "98": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46256710830710",
+            "endTime": "46256712026477",
+            "elapsedTime": "1195767"
+        },
+        "99": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46256729821593",
+            "endTime": "46256732512039",
+            "elapsedTime": "2690446"
+        },
+        "100": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46256739555981",
+            "endTime": "46256740953169",
+            "elapsedTime": "1397188"
+        },
+        "101": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46256876832927",
+            "endTime": "46256879961904",
+            "elapsedTime": "3128977"
+        },
+        "102": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46256878779231",
+            "endTime": "46444323558712",
+            "elapsedTime": "187444779481"
+        },
+        "103": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46283170722089",
+            "endTime": "46444164597200",
+            "elapsedTime": "160993875111"
+        },
+        "104": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46283171594786",
+            "endTime": "46444171317133",
+            "elapsedTime": "160999722347"
+        },
+        "105": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46283172047298",
+            "endTime": "46444172334563",
+            "elapsedTime": "161000287265"
+        },
+        "106": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46283172424490",
+            "endTime": "46444182913962",
+            "elapsedTime": "161010489472"
+        },
+        "107": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46283173431371",
+            "endTime": "46444162984477",
+            "elapsedTime": "160989553106"
+        },
+        "108": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "46283203685503",
+            "endTime": "46295168564469",
+            "elapsedTime": "11964878966"
+        },
+        "109": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "46283204451128",
+            "endTime": "46295293281408",
+            "elapsedTime": "12088830280"
+        },
+        "110": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46283205122470",
+            "endTime": "46295294332278",
+            "elapsedTime": "12089209808"
+        },
+        "111": {
+            "source": "(lib/infer/inferIcon.js:1427:30:1427:58)",
+            "startTime": "46283228263523",
+            "endTime": "46284383803752",
+            "elapsedTime": "1155540229"
+        },
+        "112": {
+            "source": "(lib/infer/inferIcon.js:1511:30:1511:75)",
+            "startTime": "46283229075077",
+            "endTime": "46284574962964",
+            "elapsedTime": "1345887887"
+        },
+        "113": {
+            "source": "(lib/options/fields/icon.js:266:12:266:94)",
+            "startTime": "46283229665138",
+            "endTime": "46284603233585",
+            "elapsedTime": "1373568447"
+        },
+        "114": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46283230118101",
+            "endTime": "46284603978363",
+            "elapsedTime": "1373860262"
+        },
+        "115": {
+            "source": "(lib/infer/inferTitle.js:229:29:234:5)",
+            "startTime": "46283233591952",
+            "endTime": "46284794860593",
+            "elapsedTime": "1561268641"
+        },
+        "116": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "46283234309892",
+            "endTime": "46295019535849",
+            "elapsedTime": "11785225957"
+        },
+        "117": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "46283234795044",
+            "endTime": "46295020484397",
+            "elapsedTime": "11785689353"
+        },
+        "118": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46283235227437",
+            "endTime": "46295025235799",
+            "elapsedTime": "11790008362"
+        },
+        "119": {
+            "source": "(lib/options/fields/fields.js:300:29:318:6)",
+            "startTime": "46283235787687",
+            "endTime": "46295294732198",
+            "elapsedTime": "12058944511"
+        },
+        "120": {
+            "source": "(lib/options/asyncConfig.js:161:3:161:41)",
+            "startTime": "46283236355566",
+            "endTime": "46295296871482",
+            "elapsedTime": "12060515916"
+        },
+        "121": {
+            "source": "(lib/options/optionsMain.js:2554:3:2554:43)",
+            "startTime": "46283236996254",
+            "endTime": "46295297300382",
+            "elapsedTime": "12060304128"
+        },
+        "122": {
+            "source": "(lib/build/buildNativefierApp.js:1391:30:1391:72)",
+            "startTime": "46283237790775",
+            "endTime": "46295297708622",
+            "elapsedTime": "12059917847"
+        },
+        "123": {
+            "source": "(lib/integration-test.js:59:23:59:63)",
+            "startTime": "46283238540477",
+            "endTime": "46444153574220",
+            "elapsedTime": "160915033743"
+        },
+        "124": {
+            "source": "(lib/infer/inferIcon.js:1567:3:1567:44)",
+            "startTime": "46284594082232",
+            "endTime": "46284602183194",
+            "elapsedTime": "8100962"
+        },
+        "125": {
+            "source": "(lib/build/prepareElectronApp.js:1116:5:1116:45)",
+            "startTime": "46295457048156",
+            "endTime": "46436333118760",
+            "elapsedTime": "140876070604"
+        },
+        "126": {
+            "source": "(lib/build/buildNativefierApp.js:1402:3:1402:88)",
+            "startTime": "46295457771074",
+            "endTime": "46436347269699",
+            "elapsedTime": "140889498625"
+        },
+        "127": {
+            "source": "(lib/build/prepareElectronApp.js:1133:3:1133:82)",
+            "startTime": "46436335178020",
+            "endTime": "46436337086751",
+            "elapsedTime": "1908731"
+        },
+        "128": {
+            "source": "(lib/build/prepareElectronApp.js:1141:5:1141:60)",
+            "startTime": "46436340223522",
+            "endTime": "46436341144403",
+            "elapsedTime": "920881"
+        },
+        "129": {
+            "source": "(lib/build/buildNativefierApp.js:1414:3:1414:52)",
+            "startTime": "46436515766462",
+            "endTime": "46436516515724",
+            "elapsedTime": "749262"
+        },
+        "130": {
+            "source": "(node_modules/electron-packager/src/infer.js:163:20:163:52)",
+            "startTime": "46437049588425",
+            "endTime": "46437069732378",
+            "elapsedTime": "20143953"
+        },
+        "131": {
+            "source": "(node_modules/electron-packager/src/index.js:177:3:177:68)",
+            "startTime": "46437050598710",
+            "endTime": "46437073371142",
+            "elapsedTime": "22772432"
+        },
+        "132": {
+            "source": "(lib/build/buildNativefierApp.js:1430:30:1430:70)",
+            "startTime": "46437051199509",
+            "endTime": "46444150125210",
+            "elapsedTime": "7098925701"
+        },
+        "133": {
+            "source": "(node_modules/electron-packager/src/index.js:157:3:157:33)",
+            "startTime": "46437075393320",
+            "endTime": "46437076698069",
+            "elapsedTime": "1304749"
+        },
+        "134": {
+            "source": "(node_modules/electron-packager/src/index.js:187:20:187:75)",
+            "startTime": "46437076114083",
+            "endTime": "46444146888810",
+            "elapsedTime": "7070774727"
+        },
+        "135": {
+            "source": "(node_modules/@electron/get/dist/cjs/Cache.js:22:13:22:43)",
+            "startTime": "46437091013308",
+            "endTime": "46437093976961",
+            "elapsedTime": "2963653"
+        },
+        "136": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:59:28:59:76)",
+            "startTime": "46437092106241",
+            "endTime": "46437094539974",
+            "elapsedTime": "2433733"
+        },
+        "137": {
+            "source": "(node_modules/electron-packager/src/index.js:129:21:129:64)",
+            "startTime": "46437092969372",
+            "endTime": "46444063808354",
+            "elapsedTime": "6970838982"
+        },
+        "138": {
+            "source": "(node_modules/@electron/get/dist/cjs/utils.js:19:27:19:95)",
+            "startTime": "46437096210794",
+            "endTime": "46437097859115",
+            "elapsedTime": "1648321"
+        },
+        "139": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:73:12:96:7)",
+            "startTime": "46437097020154",
+            "endTime": "46444063431290",
+            "elapsedTime": "6966411136"
+        },
+        "140": {
+            "source": "(node_modules/@electron/get/dist/cjs/downloader-resolver.js:8:31:8:93)",
+            "startTime": "46437100985522",
+            "endTime": "46437474173573",
+            "elapsedTime": "373188051"
+        },
+        "141": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:75:58:75:112)",
+            "startTime": "46437103235083",
+            "endTime": "46437475130678",
+            "elapsedTime": "371895595"
+        },
+        "142": {
+            "source": "(node_modules/@electron/get/dist/cjs/utils.js:10:18:10:37)",
+            "startTime": "46437104189634",
+            "endTime": "46444061569254",
+            "elapsedTime": "6957379620"
+        },
+        "143": {
+            "source": "(node_modules/@electron/get/dist/cjs/GotDownloader.js:27:9:27:54)",
+            "startTime": "46437477779076",
+            "endTime": "46437482531468",
+            "elapsedTime": "4752392"
+        },
+        "144": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:77:9:77:90)",
+            "startTime": "46437478456787",
+            "endTime": "46442460109271",
+            "elapsedTime": "4981652484"
+        },
+        "145": {
+            "source": "(node_modules/@electron/get/dist/cjs/GotDownloader.js:42:9:65:11)",
+            "startTime": "46437506094063",
+            "endTime": "46442457617399",
+            "elapsedTime": "4951523336"
+        },
+        "146": {
+            "source": "(node_modules/got/source/request-as-event-emitter.js:289:22:289:48)",
+            "startTime": "46437511774268",
+            "endTime": "46437513185930",
+            "elapsedTime": "1411662"
+        },
+        "147": {
+            "source": "(node_modules/got/source/request-as-event-emitter.js:305:4:305:22)",
+            "startTime": "46437525774106",
+            "endTime": "46437526584308",
+            "elapsedTime": "810202"
+        },
+        "148": {
+            "source": "(node_modules/got/source/request-as-event-emitter.js:150:7:150:33)",
+            "startTime": "46437842884392",
+            "endTime": "46437846960498",
+            "elapsedTime": "4076106"
+        },
+        "149": {
+            "source": "(node_modules/@electron/get/dist/cjs/Cache.js:22:13:22:43)",
+            "startTime": "46442464475785",
+            "endTime": "46442467214756",
+            "elapsedTime": "2738971"
+        },
+        "150": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:59:28:59:76)",
+            "startTime": "46442465417688",
+            "endTime": "46442467898602",
+            "elapsedTime": "2480914"
+        },
+        "151": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:81:32:90:15)",
+            "startTime": "46442466196422",
+            "endTime": "46442971082139",
+            "elapsedTime": "504885717"
+        },
+        "152": {
+            "source": "(node_modules/@electron/get/dist/cjs/utils.js:19:27:19:95)",
+            "startTime": "46442468877885",
+            "endTime": "46442470274566",
+            "elapsedTime": "1396681"
+        },
+        "153": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:73:12:96:7)",
+            "startTime": "46442469592350",
+            "endTime": "46442970338123",
+            "elapsedTime": "500745773"
+        },
+        "154": {
+            "source": "(node_modules/@electron/get/dist/cjs/downloader-resolver.js:8:31:8:93)",
+            "startTime": "46442471190413",
+            "endTime": "46442476178986",
+            "elapsedTime": "4988573"
+        },
+        "155": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:75:58:75:112)",
+            "startTime": "46442472941344",
+            "endTime": "46442478797937",
+            "elapsedTime": "5856593"
+        },
+        "156": {
+            "source": "(node_modules/@electron/get/dist/cjs/utils.js:10:18:10:37)",
+            "startTime": "46442474357262",
+            "endTime": "46442965599834",
+            "elapsedTime": "491242572"
+        },
+        "157": {
+            "source": "(node_modules/@electron/get/dist/cjs/GotDownloader.js:27:9:27:54)",
+            "startTime": "46442480955725",
+            "endTime": "46442482764250",
+            "elapsedTime": "1808525"
+        },
+        "158": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:77:9:77:90)",
+            "startTime": "46442481756050",
+            "endTime": "46442945214563",
+            "elapsedTime": "463458513"
+        },
+        "159": {
+            "source": "(node_modules/@electron/get/dist/cjs/GotDownloader.js:42:9:65:11)",
+            "startTime": "46442494937083",
+            "endTime": "46442944288963",
+            "elapsedTime": "449351880"
+        },
+        "160": {
+            "source": "(node_modules/got/source/request-as-event-emitter.js:289:22:289:48)",
+            "startTime": "46442496477666",
+            "endTime": "46442497284411",
+            "elapsedTime": "806745"
+        },
+        "161": {
+            "source": "(node_modules/got/source/request-as-event-emitter.js:305:4:305:22)",
+            "startTime": "46442502635973",
+            "endTime": "46442503447436",
+            "elapsedTime": "811463"
+        },
+        "162": {
+            "source": "(node_modules/got/source/request-as-event-emitter.js:150:7:150:33)",
+            "startTime": "46442772602057",
+            "endTime": "46442775218200",
+            "elapsedTime": "2616143"
+        },
+        "163": {
+            "source": "(node_modules/@electron/get/dist/cjs/Cache.js:30:13:30:43)",
+            "startTime": "46442948284201",
+            "endTime": "46442950188581",
+            "elapsedTime": "1904380"
+        },
+        "164": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:95:16:95:75)",
+            "startTime": "46442949248097",
+            "endTime": "46442964988180",
+            "elapsedTime": "15740083"
+        },
+        "165": {
+            "source": "(node_modules/@electron/get/dist/cjs/Cache.js:34:9:34:46)",
+            "startTime": "46442951932549",
+            "endTime": "46442964204716",
+            "elapsedTime": "12272167"
+        },
+        "166": {
+            "source": "(node_modules/@electron/get/dist/cjs/utils.js:13:9:13:35)",
+            "startTime": "46442967141202",
+            "endTime": "46442969524948",
+            "elapsedTime": "2383746"
+        },
+        "167": {
+            "source": "(node_modules/sumchecker/index.js:105:18:105:67)",
+            "startTime": "46442973865482",
+            "endTime": "46442976218604",
+            "elapsedTime": "2353122"
+        },
+        "168": {
+            "source": "(node_modules/@electron/get/dist/cjs/index.js:91:13:93:15)",
+            "startTime": "46442974804125",
+            "endTime": "46444054396578",
+            "elapsedTime": "1079592453"
+        },
+        "169": {
+            "source": "(node_modules/@electron/get/dist/cjs/Cache.js:30:13:30:43)",
+            "startTime": "46444056681346",
+            "endTime": "46444057841698",
+            "elapsedTime": "1160352"
+        },
+        "171": {
+            "source": "(node_modules/@electron/get/dist/cjs/Cache.js:34:9:34:46)",
+            "startTime": "46444058406161",
+            "endTime": "46444061035893",
+            "elapsedTime": "2629732"
+        },
+        "172": {
+            "source": "(node_modules/@electron/get/dist/cjs/utils.js:13:9:13:35)",
+            "startTime": "46444062176013",
+            "endTime": "46444062994573",
+            "elapsedTime": "818560"
+        },
+        "173": {
+            "source": "(node_modules/electron-packager/src/index.js:87:5:87:33)",
+            "startTime": "46444065914569",
+            "endTime": "46444066734052",
+            "elapsedTime": "819483"
+        },
+        "174": {
+            "source": "(node_modules/electron-packager/src/index.js:72:5:72:35)",
+            "startTime": "46444132466927",
+            "endTime": "46444137320672",
+            "elapsedTime": "4853745"
+        },
+        "175": {
+            "source": "(node_modules/electron-packager/src/index.js:88:5:88:64)",
+            "startTime": "46444133877655",
+            "endTime": "46444143317152",
+            "elapsedTime": "9439497"
+        },
+        "176": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46444172921454",
+            "endTime": "46444176819625",
+            "elapsedTime": "3898171"
+        },
+        "177": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46444322057636",
+            "endTime": "46444322911899",
+            "elapsedTime": "854263"
+        },
+        "178": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46444339571994",
+            "endTime": "46444344704682",
+            "elapsedTime": "5132688"
+        },
+        "179": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46444347334896",
+            "endTime": "46444348182045",
+            "elapsedTime": "847149"
+        },
+        "180": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46444439736203",
+            "endTime": "46444441144868",
+            "elapsedTime": "1408665"
+        },
+        "181": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46444440556781",
+            "endTime": "46446457720619",
+            "elapsedTime": "2017163838"
+        },
+        "182": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46446366173344",
+            "endTime": "46446412326171",
+            "elapsedTime": "46152827"
+        },
+        "183": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46446367149449",
+            "endTime": "46446413696359",
+            "elapsedTime": "46546910"
+        },
+        "184": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46446367695878",
+            "endTime": "46446414414477",
+            "elapsedTime": "46718599"
+        },
+        "185": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46446368105902",
+            "endTime": "46446428581960",
+            "elapsedTime": "60476058"
+        },
+        "186": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46446414893726",
+            "endTime": "46446418393024",
+            "elapsedTime": "3499298"
+        },
+        "187": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46446452800716",
+            "endTime": "46446453528619",
+            "elapsedTime": "727903"
+        },
+        "188": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46446462457717",
+            "endTime": "46446464000179",
+            "elapsedTime": "1542462"
+        },
+        "189": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46446465929065",
+            "endTime": "46446466597959",
+            "elapsedTime": "668894"
+        },
+        "190": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46446547995510",
+            "endTime": "46446549171457",
+            "elapsedTime": "1175947"
+        },
+        "191": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46446548659225",
+            "endTime": "46451624969712",
+            "elapsedTime": "5076310487"
+        },
+        "192": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46448041013650",
+            "endTime": "46451602692850",
+            "elapsedTime": "3561679200"
+        },
+        "193": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46448041884774",
+            "endTime": "46451603636198",
+            "elapsedTime": "3561751424"
+        },
+        "194": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46448042357044",
+            "endTime": "46451604346095",
+            "elapsedTime": "3561989051"
+        },
+        "195": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46448042754602",
+            "endTime": "46451610968426",
+            "elapsedTime": "3568213824"
+        },
+        "196": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46448043939883",
+            "endTime": "46451601514963",
+            "elapsedTime": "3557575080"
+        },
+        "197": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "46448052232356",
+            "endTime": "46448752679848",
+            "elapsedTime": "700447492"
+        },
+        "198": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "46448052832992",
+            "endTime": "46448862312376",
+            "elapsedTime": "809479384"
+        },
+        "199": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "46448053283393",
+            "endTime": "46448863479401",
+            "elapsedTime": "810196008"
+        },
+        "200": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "46448869187828",
+            "endTime": "46449575990359",
+            "elapsedTime": "706802531"
+        },
+        "201": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "46448869822565",
+            "endTime": "46449679806309",
+            "elapsedTime": "809983744"
+        },
+        "202": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "46448870293278",
+            "endTime": "46449680365391",
+            "elapsedTime": "810072113"
+        },
+        "203": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "46449683151949",
+            "endTime": "46450665799254",
+            "elapsedTime": "982647305"
+        },
+        "204": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "46449683700353",
+            "endTime": "46450769886512",
+            "elapsedTime": "1086186159"
+        },
+        "205": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "46449684095157",
+            "endTime": "46450770449981",
+            "elapsedTime": "1086354824"
+        },
+        "206": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "46450773092260",
+            "endTime": "46451462336366",
+            "elapsedTime": "689244106"
+        },
+        "207": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "46450773568302",
+            "endTime": "46451596233661",
+            "elapsedTime": "822665359"
+        },
+        "208": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "46450773981017",
+            "endTime": "46451596899400",
+            "elapsedTime": "822918383"
+        },
+        "209": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46451604801762",
+            "endTime": "46451607181331",
+            "elapsedTime": "2379569"
+        },
+        "210": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46451623286107",
+            "endTime": "46451623890308",
+            "elapsedTime": "604201"
+        },
+        "211": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46451628966532",
+            "endTime": "46451630312576",
+            "elapsedTime": "1346044"
+        },
+        "212": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46451632193790",
+            "endTime": "46451632838838",
+            "elapsedTime": "645048"
+        },
+        "213": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46451749138555",
+            "endTime": "46451750402968",
+            "elapsedTime": "1264413"
+        },
+        "214": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46451749871459",
+            "endTime": "46455080755192",
+            "elapsedTime": "3330883733"
+        },
+        "215": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46454018013064",
+            "endTime": "46455012855622",
+            "elapsedTime": "994842558"
+        },
+        "216": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46454021194708",
+            "endTime": "46455013951522",
+            "elapsedTime": "992756814"
+        },
+        "217": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46454023649007",
+            "endTime": "46455014602605",
+            "elapsedTime": "990953598"
+        },
+        "218": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46454025792262",
+            "endTime": "46455020628719",
+            "elapsedTime": "994836457"
+        },
+        "219": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46454043270747",
+            "endTime": "46454059236327",
+            "elapsedTime": "15965580"
+        },
+        "220": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46454046363391",
+            "endTime": "46454060055269",
+            "elapsedTime": "13691878"
+        },
+        "221": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46454055412512",
+            "endTime": "46454060702141",
+            "elapsedTime": "5289629"
+        },
+        "222": {
+            "source": "(lib/options/fields/fields.js:300:29:318:6)",
+            "startTime": "46454056926575",
+            "endTime": "46454061389538",
+            "elapsedTime": "4462963"
+        },
+        "223": {
+            "source": "(lib/options/fields/fields.test.js:22:3:22:41)",
+            "startTime": "46454057981574",
+            "endTime": "46454064284636",
+            "elapsedTime": "6303062"
+        },
+        "224": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "46454102470840",
+            "endTime": "46454786532222",
+            "elapsedTime": "684061382"
+        },
+        "225": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "46454103474887",
+            "endTime": "46454923193661",
+            "elapsedTime": "819718774"
+        },
+        "226": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46454104248744",
+            "endTime": "46455007271619",
+            "elapsedTime": "903022875"
+        },
+        "227": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46454107943635",
+            "endTime": "46454137475413",
+            "elapsedTime": "29531778"
+        },
+        "228": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "46454111087989",
+            "endTime": "46454138386876",
+            "elapsedTime": "27298887"
+        },
+        "229": {
+            "source": "(lib/options/fields/fields.js:300:29:318:6)",
+            "startTime": "46454112173040",
+            "endTime": "46455007711508",
+            "elapsedTime": "895538468"
+        },
+        "230": {
+            "source": "(lib/options/fields/fields.test.js:41:3:41:41)",
+            "startTime": "46454113000258",
+            "endTime": "46455009658364",
+            "elapsedTime": "896658106"
+        },
+        "231": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46455015008151",
+            "endTime": "46455017074110",
+            "elapsedTime": "2065959"
+        },
+        "232": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46455078883269",
+            "endTime": "46455079586574",
+            "elapsedTime": "703305"
+        },
+        "233": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46455085756386",
+            "endTime": "46455090276738",
+            "elapsedTime": "4520352"
+        },
+        "234": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46455092594359",
+            "endTime": "46455093380516",
+            "elapsedTime": "786157"
+        },
+        "235": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46455226232459",
+            "endTime": "46455227641833",
+            "elapsedTime": "1409374"
+        },
+        "236": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46455227053654",
+            "endTime": "46456521198058",
+            "elapsedTime": "1294144404"
+        },
+        "237": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46456479881207",
+            "endTime": "46456498037394",
+            "elapsedTime": "18156187"
+        },
+        "238": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46456480895048",
+            "endTime": "46456498981794",
+            "elapsedTime": "18086746"
+        },
+        "239": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46456481457199",
+            "endTime": "46456499679917",
+            "elapsedTime": "18222718"
+        },
+        "240": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46456481906815",
+            "endTime": "46456507319042",
+            "elapsedTime": "25412227"
+        },
+        "241": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46456483065486",
+            "endTime": "46456492317011",
+            "elapsedTime": "9251525"
+        },
+        "242": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46456490142824",
+            "endTime": "46456491142276",
+            "elapsedTime": "999452"
+        },
+        "243": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46456493144218",
+            "endTime": "46456497387524",
+            "elapsedTime": "4243306"
+        },
+        "244": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46456500170947",
+            "endTime": "46456502718006",
+            "elapsedTime": "2547059"
+        },
+        "245": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46456515634018",
+            "endTime": "46456516243486",
+            "elapsedTime": "609468"
+        },
+        "246": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46456525437200",
+            "endTime": "46456526425373",
+            "elapsedTime": "988173"
+        },
+        "247": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46456528234877",
+            "endTime": "46456528860363",
+            "elapsedTime": "625486"
+        },
+        "248": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46456601933836",
+            "endTime": "46456603109057",
+            "elapsedTime": "1175221"
+        },
+        "249": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46456602611662",
+            "endTime": "46458128630739",
+            "elapsedTime": "1526019077"
+        },
+        "250": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46458075886646",
+            "endTime": "46458102431421",
+            "elapsedTime": "26544775"
+        },
+        "251": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46458076740449",
+            "endTime": "46458103733226",
+            "elapsedTime": "26992777"
+        },
+        "252": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46458077242266",
+            "endTime": "46458104326805",
+            "elapsedTime": "27084539"
+        },
+        "253": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46458077652713",
+            "endTime": "46458110585062",
+            "elapsedTime": "32932349"
+        },
+        "254": {
+            "source": "(lib/options/fields/userAgent.test.js:20:3:20:66)",
+            "startTime": "46458087171592",
+            "endTime": "46458088935446",
+            "elapsedTime": "1763854"
+        },
+        "255": {
+            "source": "(lib/options/fields/userAgent.test.js:30:3:30:38)",
+            "startTime": "46458092275661",
+            "endTime": "46458093190336",
+            "elapsedTime": "914675"
+        },
+        "256": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46458104736696",
+            "endTime": "46458106980506",
+            "elapsedTime": "2243810"
+        },
+        "257": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46458124713888",
+            "endTime": "46458125299909",
+            "elapsedTime": "586021"
+        },
+        "258": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46458132458561",
+            "endTime": "46458134121857",
+            "elapsedTime": "1663296"
+        },
+        "259": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46458136025981",
+            "endTime": "46458136605095",
+            "elapsedTime": "579114"
+        },
+        "260": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46458196244181",
+            "endTime": "46458197277320",
+            "elapsedTime": "1033139"
+        },
+        "261": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46458196831338",
+            "endTime": "46460334537623",
+            "elapsedTime": "2137706285"
+        },
+        "262": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46460203868552",
+            "endTime": "46460240082389",
+            "elapsedTime": "36213837"
+        },
+        "263": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46460204832647",
+            "endTime": "46460241179597",
+            "elapsedTime": "36346950"
+        },
+        "264": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46460205325406",
+            "endTime": "46460241778418",
+            "elapsedTime": "36453012"
+        },
+        "265": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46460205706903",
+            "endTime": "46460247038084",
+            "elapsedTime": "41331181"
+        },
+        "266": {
+            "source": "(lib/options/optionsMain.js:2554:3:2554:43)",
+            "startTime": "46460220120607",
+            "endTime": "46460221616197",
+            "elapsedTime": "1495590"
+        },
+        "267": {
+            "source": "(lib/options/optionsMain.test.js:22:18:22:56)",
+            "startTime": "46460220739720",
+            "endTime": "46460222273880",
+            "elapsedTime": "1534160"
+        },
+        "268": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46460242191690",
+            "endTime": "46460244173270",
+            "elapsedTime": "1981580"
+        },
+        "269": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46460330477256",
+            "endTime": "46460331176259",
+            "elapsedTime": "699003"
+        },
+        "270": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46460339427580",
+            "endTime": "46460344616476",
+            "elapsedTime": "5188896"
+        },
+        "271": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46460346789939",
+            "endTime": "46460347430133",
+            "elapsedTime": "640194"
+        },
+        "272": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46460410555891",
+            "endTime": "46460411689007",
+            "elapsedTime": "1133116"
+        },
+        "273": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46460411206833",
+            "endTime": "46462264200710",
+            "elapsedTime": "1852993877"
+        },
+        "274": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46462020756132",
+            "endTime": "46462198798465",
+            "elapsedTime": "178042333"
+        },
+        "275": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46462021566790",
+            "endTime": "46462231239545",
+            "elapsedTime": "209672755"
+        },
+        "276": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46462021991077",
+            "endTime": "46462232009623",
+            "elapsedTime": "210018546"
+        },
+        "277": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46462022356785",
+            "endTime": "46462249906136",
+            "elapsedTime": "227549351"
+        },
+        "278": {
+            "source": "(lib/infer/inferTitle.js:229:29:234:5)",
+            "startTime": "46462026348628",
+            "endTime": "46462029065824",
+            "elapsedTime": "2717196"
+        },
+        "279": {
+            "source": "(lib/infer/inferTitle.test.js:26:18:26:58)",
+            "startTime": "46462028039623",
+            "endTime": "46462193051587",
+            "elapsedTime": "165011964"
+        },
+        "280": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46462232464685",
+            "endTime": "46462241304873",
+            "elapsedTime": "8840188"
+        },
+        "281": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46462259676741",
+            "endTime": "46462260363678",
+            "elapsedTime": "686937"
+        },
+        "282": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46462274034491",
+            "endTime": "46462275041763",
+            "elapsedTime": "1007272"
+        },
+        "283": {
+            "source": "(node_modules/jest-runner/build/index.js:135:15:135:34)",
+            "startTime": "46462277633197",
+            "endTime": "46462278475700",
+            "elapsedTime": "842503"
+        },
+        "284": {
+            "source": "(node_modules/jest-runner/build/runTest.js:405:5:405:30)",
+            "startTime": "46462344957844",
+            "endTime": "46462346073613",
+            "elapsedTime": "1115769"
+        },
+        "285": {
+            "source": "(node_modules/jest-runner/build/runTest.js:487:34:493:4)",
+            "startTime": "46462345614443",
+            "endTime": "46463517289511",
+            "elapsedTime": "1171675068"
+        },
+        "286": {
+            "source": "(node_modules/jest-jasmine2/build/treeProcessor.js:43:7:47:9)",
+            "startTime": "46463433956845",
+            "endTime": "46463498328816",
+            "elapsedTime": "64371971"
+        },
+        "287": {
+            "source": "(node_modules/jest-jasmine2/build/jasmine/Env.js:296:11:332:13)",
+            "startTime": "46463434802560",
+            "endTime": "46463499434600",
+            "elapsedTime": "64632040"
+        },
+        "288": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:204:3:204:22)",
+            "startTime": "46463435247038",
+            "endTime": "46463500038576",
+            "elapsedTime": "64791538"
+        },
+        "289": {
+            "source": "(node_modules/jest-runner/build/runTest.js:413:16:419:8)",
+            "startTime": "46463435634543",
+            "endTime": "46463506607450",
+            "elapsedTime": "70972907"
+        },
+        "290": {
+            "source": "(node_modules/jest-jasmine2/build/index.js:205:19:205:46)",
+            "startTime": "46463500451368",
+            "endTime": "46463502679006",
+            "elapsedTime": "2227638"
+        },
+        "291": {
+            "source": "(node_modules/jest-runner/build/runTest.js:480:5:480:33)",
+            "startTime": "46463513223567",
+            "endTime": "46463513872979",
+            "elapsedTime": "649412"
+        },
+        "292": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:193:7:193:79)",
+            "startTime": "46463521124528",
+            "endTime": "46463522009315",
+            "elapsedTime": "884787"
+        },
+        "293": {
+            "source": "(node_modules/@jest/core/build/TestScheduler.js:280:5:280:70)",
+            "startTime": "46463531039096",
+            "endTime": "46467523337996",
+            "elapsedTime": "3992298900"
+        },
+        "294": {
+            "source": "(node_modules/@jest/reporters/build/coverage_reporter.js:288:5:288:43)",
+            "startTime": "46463534707502",
+            "endTime": "46463536722667",
+            "elapsedTime": "2015165"
+        },
+        "295": {
+            "source": "(node_modules/@jest/core/build/ReporterDispatcher.js:71:9:71:58)",
+            "startTime": "46463535862885",
+            "endTime": "46467515253204",
+            "elapsedTime": "3979390319"
+        },
+        "296": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46463542922964",
+            "endTime": "46463551070307",
+            "elapsedTime": "8147343"
+        },
+        "297": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/map-store.js:215:16:215:56)",
+            "startTime": "46463548883354",
+            "endTime": "46466447971248",
+            "elapsedTime": "2899087894"
+        },
+        "298": {
+            "source": "(node_modules/@jest/reporters/build/coverage_reporter.js:694:17:694:80)",
+            "startTime": "46463549729585",
+            "endTime": "46466456384605",
+            "elapsedTime": "2906655020"
+        },
+        "299": {
+            "source": "(node_modules/@jest/reporters/build/coverage_reporter.js:289:34:289:65)",
+            "startTime": "46463550410614",
+            "endTime": "46466525337641",
+            "elapsedTime": "2974927027"
+        },
+        "300": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46463634481978",
+            "endTime": "46463642070210",
+            "elapsedTime": "7588232"
+        },
+        "301": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46463827253619",
+            "endTime": "46463831526538",
+            "elapsedTime": "4272919"
+        },
+        "302": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46463900334059",
+            "endTime": "46463903708629",
+            "elapsedTime": "3374570"
+        },
+        "303": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46463948228513",
+            "endTime": "46463951079607",
+            "elapsedTime": "2851094"
+        },
+        "304": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46463973544252",
+            "endTime": "46463977469047",
+            "elapsedTime": "3924795"
+        },
+        "305": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46464024818071",
+            "endTime": "46464028055919",
+            "elapsedTime": "3237848"
+        },
+        "306": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46464068258956",
+            "endTime": "46464080017347",
+            "elapsedTime": "11758391"
+        },
+        "307": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46464343200302",
+            "endTime": "46464353799706",
+            "elapsedTime": "10599404"
+        },
+        "308": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46464647846991",
+            "endTime": "46464650759870",
+            "elapsedTime": "2912879"
+        },
+        "309": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46464677035960",
+            "endTime": "46464687360664",
+            "elapsedTime": "10324704"
+        },
+        "310": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465024813493",
+            "endTime": "46465040365379",
+            "elapsedTime": "15551886"
+        },
+        "311": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465435841609",
+            "endTime": "46465440686661",
+            "elapsedTime": "4845052"
+        },
+        "312": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465507472177",
+            "endTime": "46465509899762",
+            "elapsedTime": "2427585"
+        },
+        "313": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465527134507",
+            "endTime": "46465532447687",
+            "elapsedTime": "5313180"
+        },
+        "314": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465590920575",
+            "endTime": "46465593709295",
+            "elapsedTime": "2788720"
+        },
+        "315": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465620435518",
+            "endTime": "46465628356181",
+            "elapsedTime": "7920663"
+        },
+        "316": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465779278115",
+            "endTime": "46465783338325",
+            "elapsedTime": "4060210"
+        },
+        "317": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46465842759929",
+            "endTime": "46465857745711",
+            "elapsedTime": "14985782"
+        },
+        "318": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46466146974279",
+            "endTime": "46466154038223",
+            "elapsedTime": "7063944"
+        },
+        "319": {
+            "source": "(node_modules/istanbul-lib-source-maps/lib/transformer.js:108:31:108:58)",
+            "startTime": "46466306584222",
+            "endTime": "46466313399674",
+            "elapsedTime": "6815452"
+        },
+        "320": {
+            "source": "(node_modules/@jest/core/build/runGlobalHook.js:58:5:85:6)",
+            "startTime": "46467594713574",
+            "endTime": "46467597875546",
+            "elapsedTime": "3161972"
+        },
+        "321": {
+            "source": "(node_modules/@jest/core/build/runJest.js:424:5:428:7)",
+            "startTime": "46467595523397",
+            "endTime": "46467598862705",
+            "elapsedTime": "3339308"
+        },
+        "322": {
+            "source": "(node_modules/p-each-series/index.js:8:3:8:39)",
+            "startTime": "46467596376601",
+            "endTime": "46467597072703",
+            "elapsedTime": "696102"
+        }
+    }
+}

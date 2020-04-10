@@ -1,0 +1,466 @@
+{
+    "promises": {
+        "0": {
+            "source": "(lib/options/fields/name.test.js:39:20:39:59)",
+            "startTime": "47290426123196",
+            "endTime": "47290446780508",
+            "elapsedTime": "20657312"
+        },
+        "1": {
+            "source": "(lib/options/fields/name.test.js:44:20:44:59)",
+            "startTime": "47290456646989",
+            "endTime": "47290458263615",
+            "elapsedTime": "1616626"
+        },
+        "2": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "47290472127078",
+            "endTime": "47290476954864",
+            "elapsedTime": "4827786"
+        },
+        "3": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "47290474409740",
+            "endTime": "47290477934080",
+            "elapsedTime": "3524340"
+        },
+        "4": {
+            "source": "(lib/options/fields/name.test.js:59:5:59:30)",
+            "startTime": "47290475609270",
+            "endTime": "47290478700309",
+            "elapsedTime": "3091039"
+        },
+        "5": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "47290491742177",
+            "endTime": "47290494415369",
+            "elapsedTime": "2673192"
+        },
+        "6": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "47290492638862",
+            "endTime": "47290495104427",
+            "elapsedTime": "2465565"
+        },
+        "7": {
+            "source": "(lib/options/fields/name.test.js:66:5:66:34)",
+            "startTime": "47290493361417",
+            "endTime": "47290495675400",
+            "elapsedTime": "2313983"
+        },
+        "8": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "47290500573479",
+            "endTime": "47290503873597",
+            "elapsedTime": "3300118"
+        },
+        "9": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "47290501627048",
+            "endTime": "47290505170929",
+            "elapsedTime": "3543881"
+        },
+        "10": {
+            "source": "(lib/options/fields/name.test.js:70:20:70:45)",
+            "startTime": "47290502554499",
+            "endTime": "47290506412604",
+            "elapsedTime": "3858105"
+        },
+        "11": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "47290515157154",
+            "endTime": "47290520459158",
+            "elapsedTime": "5302004"
+        },
+        "12": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "47290516638877",
+            "endTime": "47290521743290",
+            "elapsedTime": "5104413"
+        },
+        "13": {
+            "source": "(lib/options/fields/name.test.js:76:20:76:62)",
+            "startTime": "47290518341881",
+            "endTime": "47290524432956",
+            "elapsedTime": "6091075"
+        },
+        "14": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "47290533743789",
+            "endTime": "47290538328679",
+            "elapsedTime": "4584890"
+        },
+        "15": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "47290535115766",
+            "endTime": "47290539883051",
+            "elapsedTime": "4767285"
+        },
+        "16": {
+            "source": "(lib/options/fields/name.test.js:82:20:82:62)",
+            "startTime": "47290536419842",
+            "endTime": "47290541246477",
+            "elapsedTime": "4826635"
+        },
+        "17": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "47290550598377",
+            "endTime": "47290558104295",
+            "elapsedTime": "7505918"
+        },
+        "18": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "47290552034554",
+            "endTime": "47290560123190",
+            "elapsedTime": "8088636"
+        },
+        "19": {
+            "source": "(lib/options/fields/name.test.js:88:20:88:62)",
+            "startTime": "47290553218579",
+            "endTime": "47290561415588",
+            "elapsedTime": "8197009"
+        },
+        "20": {
+            "source": "(lib/options/fields/icon.test.js:32:5:32:72)",
+            "startTime": "47300074210935",
+            "endTime": "47300076199999",
+            "elapsedTime": "1989064"
+        },
+        "21": {
+            "source": "(lib/options/fields/icon.js:266:12:266:94)",
+            "startTime": "47300081843125",
+            "endTime": "47300084571496",
+            "elapsedTime": "2728371"
+        },
+        "22": {
+            "source": "(lib/options/fields/icon.test.js:38:20:38:62)",
+            "startTime": "47300083385549",
+            "endTime": "47300085215710",
+            "elapsedTime": "1830161"
+        },
+        "24": {
+            "source": "(lib/options/fields/icon.test.js:45:22:45:64)",
+            "startTime": "47300126338686",
+            "endTime": "47300127974742",
+            "elapsedTime": "1636056"
+        },
+        "25": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "47321066879383",
+            "endTime": "47330132254472",
+            "elapsedTime": "9065375089"
+        },
+        "26": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "47321068396974",
+            "endTime": "47330273497744",
+            "elapsedTime": "9205100770"
+        },
+        "27": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47321069542336",
+            "endTime": "47330275724639",
+            "elapsedTime": "9206182303"
+        },
+        "28": {
+            "source": "(lib/infer/inferIcon.js:1427:30:1427:58)",
+            "startTime": "47321143549732",
+            "endTime": "47321919359473",
+            "elapsedTime": "775809741"
+        },
+        "29": {
+            "source": "(lib/infer/inferIcon.js:1511:30:1511:75)",
+            "startTime": "47321145189271",
+            "endTime": "47322200070167",
+            "elapsedTime": "1054880896"
+        },
+        "30": {
+            "source": "(lib/options/fields/icon.js:266:12:266:94)",
+            "startTime": "47321146068232",
+            "endTime": "47322258071059",
+            "elapsedTime": "1112002827"
+        },
+        "31": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47321146666304",
+            "endTime": "47322258869367",
+            "elapsedTime": "1112203063"
+        },
+        "32": {
+            "source": "(lib/infer/inferTitle.js:229:29:234:5)",
+            "startTime": "47321152236538",
+            "endTime": "47322357098654",
+            "elapsedTime": "1204862116"
+        },
+        "33": {
+            "source": "(lib/options/fields/name.js:383:30:383:70)",
+            "startTime": "47321153226199",
+            "endTime": "47330104881959",
+            "elapsedTime": "8951655760"
+        },
+        "34": {
+            "source": "(lib/options/fields/name.js:426:29:426:77)",
+            "startTime": "47321153912606",
+            "endTime": "47330105668567",
+            "elapsedTime": "8951755961"
+        },
+        "35": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47321154494536",
+            "endTime": "47330108452759",
+            "elapsedTime": "8953958223"
+        },
+        "36": {
+            "source": "(lib/options/fields/fields.js:300:29:318:6)",
+            "startTime": "47321156275413",
+            "endTime": "47330276434445",
+            "elapsedTime": "9120159032"
+        },
+        "37": {
+            "source": "(lib/options/asyncConfig.js:161:3:161:41)",
+            "startTime": "47321157650843",
+            "endTime": "47330279708164",
+            "elapsedTime": "9122057321"
+        },
+        "38": {
+            "source": "(lib/options/optionsMain.js:2554:3:2554:43)",
+            "startTime": "47321158449804",
+            "endTime": "47330280577043",
+            "elapsedTime": "9122127239"
+        },
+        "39": {
+            "source": "(lib/build/buildNativefierApp.js:1391:30:1391:72)",
+            "startTime": "47321159184005",
+            "endTime": "47330281456517",
+            "elapsedTime": "9122272512"
+        },
+        "40": {
+            "source": "(lib/integration-test.js:59:23:59:63)",
+            "startTime": "47321159852837",
+            "endTime": "47465360685247",
+            "elapsedTime": "144200832410"
+        },
+        "41": {
+            "source": "(lib/infer/inferIcon.js:1567:3:1567:44)",
+            "startTime": "47322236262889",
+            "endTime": "47322256906552",
+            "elapsedTime": "20643663"
+        },
+        "42": {
+            "source": "(lib/build/prepareElectronApp.js:1116:5:1116:45)",
+            "startTime": "47330437467654",
+            "endTime": "47458539330611",
+            "elapsedTime": "128101862957"
+        },
+        "43": {
+            "source": "(lib/build/buildNativefierApp.js:1402:3:1402:88)",
+            "startTime": "47330438366631",
+            "endTime": "47458608603141",
+            "elapsedTime": "128170236510"
+        },
+        "44": {
+            "source": "(lib/build/prepareElectronApp.js:1133:3:1133:82)",
+            "startTime": "47458541338023",
+            "endTime": "47458543674021",
+            "elapsedTime": "2335998"
+        },
+        "45": {
+            "source": "(lib/build/prepareElectronApp.js:1141:5:1141:60)",
+            "startTime": "47458548323692",
+            "endTime": "47458549323305",
+            "elapsedTime": "999613"
+        },
+        "46": {
+            "source": "(lib/build/buildNativefierApp.js:1414:3:1414:52)",
+            "startTime": "47458743240699",
+            "endTime": "47458743997724",
+            "elapsedTime": "757025"
+        },
+        "47": {
+            "source": "(lib/build/buildNativefierApp.js:1430:30:1430:70)",
+            "startTime": "47459150738040",
+            "endTime": "47465354090150",
+            "elapsedTime": "6203352110"
+        },
+        "48": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "47468337504294",
+            "endTime": "47468905538862",
+            "elapsedTime": "568034568"
+        },
+        "49": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "47468338433006",
+            "endTime": "47469018422574",
+            "elapsedTime": "679989568"
+        },
+        "50": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "47468339026253",
+            "endTime": "47469020032028",
+            "elapsedTime": "681005775"
+        },
+        "51": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "47469024132513",
+            "endTime": "47470119098098",
+            "elapsedTime": "1094965585"
+        },
+        "52": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "47469024776749",
+            "endTime": "47470232247405",
+            "elapsedTime": "1207470656"
+        },
+        "53": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "47469025251669",
+            "endTime": "47470233079824",
+            "elapsedTime": "1207828155"
+        },
+        "54": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "47470235877807",
+            "endTime": "47471548068762",
+            "elapsedTime": "1312190955"
+        },
+        "55": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "47470236524655",
+            "endTime": "47471654152246",
+            "elapsedTime": "1417627591"
+        },
+        "56": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "47470236982620",
+            "endTime": "47471654929721",
+            "elapsedTime": "1417947101"
+        },
+        "57": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "47471657702215",
+            "endTime": "47472274025044",
+            "elapsedTime": "616322829"
+        },
+        "58": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "47471658300455",
+            "endTime": "47472382299784",
+            "elapsedTime": "723999329"
+        },
+        "59": {
+            "source": "(lib/infer/inferUserAgent.test.js:22:18:22:99)",
+            "startTime": "47471658728709",
+            "endTime": "47472383045707",
+            "elapsedTime": "724316998"
+        },
+        "60": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47474324729470",
+            "endTime": "47474330814490",
+            "elapsedTime": "6085020"
+        },
+        "61": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47474326288123",
+            "endTime": "47474331345446",
+            "elapsedTime": "5057323"
+        },
+        "62": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47474328735857",
+            "endTime": "47474331762633",
+            "elapsedTime": "3026776"
+        },
+        "63": {
+            "source": "(lib/options/fields/fields.js:300:29:318:6)",
+            "startTime": "47474329506744",
+            "endTime": "47474332197029",
+            "elapsedTime": "2690285"
+        },
+        "64": {
+            "source": "(lib/options/fields/fields.test.js:22:3:22:41)",
+            "startTime": "47474330040803",
+            "endTime": "47474334150873",
+            "elapsedTime": "4110070"
+        },
+        "65": {
+            "source": "(lib/infer/inferUserAgent.js:792:28:794:5)",
+            "startTime": "47474347665745",
+            "endTime": "47474886884244",
+            "elapsedTime": "539218499"
+        },
+        "66": {
+            "source": "(lib/infer/inferUserAgent.js:933:31:933:93)",
+            "startTime": "47474348321374",
+            "endTime": "47474987626853",
+            "elapsedTime": "639305479"
+        },
+        "67": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47474348781748",
+            "endTime": "47475128481419",
+            "elapsedTime": "779699671"
+        },
+        "68": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47474349270569",
+            "endTime": "47474358912618",
+            "elapsedTime": "9642049"
+        },
+        "69": {
+            "source": "(lib/options/fields/fields.js:309:31:309:55)",
+            "startTime": "47474350198597",
+            "endTime": "47474359466418",
+            "elapsedTime": "9267821"
+        },
+        "70": {
+            "source": "(lib/options/fields/fields.js:300:29:318:6)",
+            "startTime": "47474350738330",
+            "endTime": "47475128945533",
+            "elapsedTime": "778207203"
+        },
+        "71": {
+            "source": "(lib/options/fields/fields.test.js:41:3:41:41)",
+            "startTime": "47474351191955",
+            "endTime": "47475130827658",
+            "elapsedTime": "779635703"
+        },
+        "72": {
+            "source": "(lib/options/fields/userAgent.test.js:20:3:20:66)",
+            "startTime": "47477402678953",
+            "endTime": "47477404136530",
+            "elapsedTime": "1457577"
+        },
+        "73": {
+            "source": "(lib/options/fields/userAgent.test.js:30:3:30:38)",
+            "startTime": "47477406686242",
+            "endTime": "47477407456925",
+            "elapsedTime": "770683"
+        },
+        "74": {
+            "source": "(lib/options/optionsMain.js:2554:3:2554:43)",
+            "startTime": "47479397574466",
+            "endTime": "47479398950127",
+            "elapsedTime": "1375661"
+        },
+        "75": {
+            "source": "(lib/options/optionsMain.test.js:22:18:22:56)",
+            "startTime": "47479398160808",
+            "endTime": "47479399721575",
+            "elapsedTime": "1560767"
+        },
+        "76": {
+            "source": "(lib/infer/inferTitle.js:229:29:234:5)",
+            "startTime": "47480891279981",
+            "endTime": "47480893833492",
+            "elapsedTime": "2553511"
+        },
+        "77": {
+            "source": "(lib/infer/inferTitle.test.js:26:18:26:58)",
+            "startTime": "47480893105463",
+            "endTime": "47480922475912",
+            "elapsedTime": "29370449"
+        }
+    }
+}
