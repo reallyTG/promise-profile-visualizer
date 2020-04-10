@@ -18,17 +18,36 @@ let sourceFiles = {};
 // Constant to turn the AbsoluteHugeInt into a manageable double.
 let DIV_FOR_SCALE = 100000000000000;
 
+function isInvalidPromiseDatum(o) {
+  return  undefined == o["startTime"] ||
+          undefined == o["endTime"] ||
+          undefined == o["elapsedTime"] ||
+          undefined == o["source"];
+}
+
 // Turn the JSON object into something usable.
 function processJSON(theDataObj) {
 
   // console.log(theDataObj)
 
   let rData = [];
-  for(var i = 0; i < Object.keys(theDataObj).length; i++) {
+  // for(var i = 0; i < Object.keys(theDataObj).length; i++) {
+  for (var i in Object.keys(theDataObj)) {
+    console.log(`i: ${i}`);
     let o = theDataObj[i];
 
+    if (o == undefined)
+      continue;
+
+    // console.log("theDataObj[" + i + "]: ");
+    // console.log(o);
+
+    // Check for undefined properties.
+    if (isInvalidPromiseDatum(o))
+      continue;
+
     // Edit the object contents.
-    o["x"] = i;
+    o["x"] = Number(i);
     // Turn the strings into numbers.
     o["y0"] = Number(o["startTime"])/DIV_FOR_SCALE;
     o["y"] = Number(o["endTime"])/DIV_FOR_SCALE;
@@ -38,6 +57,8 @@ function processJSON(theDataObj) {
     o["label"] = `UID: ${i}\nelapsedTime: ${o["elapsedTime"]}\nsource: ${o["source"]}`;
 
     // Push modified object to an array (needed by Victory).
+    console.log("Modified o:");
+    console.log(o);
     rData.push(o);
   }
 
@@ -129,6 +150,9 @@ function getSourceForLocation(loc) {
 
 // Initial data array.
 let data = processJSON(dataObj);
+
+console.log(dataObj);
+console.log(data);
 
 // Debug: what is the data array?
 // console.log(data);

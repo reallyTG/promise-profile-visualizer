@@ -1,0 +1,95 @@
+{
+    "promises": {
+        "0": {
+            "source": "(lib/fetch.js:4:2:4:35)",
+            "startTime": "90484348518093",
+            "funcID": 26,
+            "endTime": "90485003088358",
+            "elapsedTime": "654570265"
+        },
+        "1": {
+            "source": "(recursive.js:5:16:5:29)",
+            "startTime": "90484353576948",
+            "funcID": 25,
+            "endTime": "90485004380484",
+            "elapsedTime": "650803536"
+        },
+        "2": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484354096076",
+            "funcID": 24,
+            "endTime": "90485004729294",
+            "elapsedTime": "650633218"
+        },
+        "3": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484354427543",
+            "funcID": 23,
+            "endTime": "90485004955100",
+            "elapsedTime": "650527557"
+        },
+        "4": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484354625661",
+            "funcID": 22,
+            "endTime": "90485005158793",
+            "elapsedTime": "650533132"
+        },
+        "5": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484354813820",
+            "funcID": 21,
+            "endTime": "90485005346434",
+            "elapsedTime": "650532614"
+        },
+        "6": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484355005682",
+            "funcID": 20,
+            "endTime": "90485005568228",
+            "elapsedTime": "650562546"
+        },
+        "7": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484355192780",
+            "funcID": 19,
+            "endTime": "90485005828483",
+            "elapsedTime": "650635703"
+        },
+        "8": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484355377894",
+            "funcID": 18,
+            "endTime": "90485006076879",
+            "elapsedTime": "650698985"
+        },
+        "9": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484355561502",
+            "funcID": 17,
+            "endTime": "90485006281229",
+            "elapsedTime": "650719727"
+        },
+        "10": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484355740827",
+            "funcID": 16,
+            "endTime": "90485006493087",
+            "elapsedTime": "650752260"
+        },
+        "11": {
+            "source": "(recursive.js:7:16:7:34)",
+            "startTime": "90484355921311",
+            "funcID": 15,
+            "endTime": "90485006685452",
+            "elapsedTime": "650764141"
+        },
+        "12": {
+            "source": "(recursive.js:12:18:12:33)",
+            "startTime": "90484356207765",
+            "funcID": 14,
+            "endTime": "90485006897841",
+            "elapsedTime": "650690076"
+        }
+    }
+}
