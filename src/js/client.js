@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryLabel, VictoryChart, VictoryTheme, VictoryTooltip, VictoryVoronoiTooltip, VictoryZoomContainer } from 'victory';
 import jsonData from '../../data/the.json';
@@ -9,6 +9,39 @@ import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
+
+// For the dropdown
+class DynamicSelect extends Component {
+    constructor(props){
+        super(props)
+    }
+
+    //On the change event for the select box pass the selected value back to the parent
+    handleChange(event) {
+      let selectedValue = event.target.value;
+      this.props.onSelectChange(selectedValue);
+    }
+
+    render(){
+        let arrayOfData = this.props.arrayOfData;
+
+        let options = arrayOfData.map((data) =>
+            <option 
+                key={data}
+                value={data}
+            >
+                {data}
+            </option>
+        );
+
+        return (
+          <select name="customSearch" className="custom-search-select" onChange={this.handleChange.bind(this)}>
+              <option>Select Item</option>
+              {options}
+          </select>
+        )
+    }
+}
 
 // Get the part of the data for plotting.
 let dataObj = jsonData.promises;
@@ -33,14 +66,10 @@ function processJSON(theDataObj) {
   let rData = [];
   // for(var i = 0; i < Object.keys(theDataObj).length; i++) {
   for (var i in Object.keys(theDataObj)) {
-    console.log(`i: ${i}`);
     let o = theDataObj[i];
 
     if (o == undefined)
       continue;
-
-    // console.log("theDataObj[" + i + "]: ");
-    // console.log(o);
 
     // Check for undefined properties.
     if (isInvalidPromiseDatum(o))
@@ -52,13 +81,12 @@ function processJSON(theDataObj) {
     o["y0"] = Number(o["startTime"])/DIV_FOR_SCALE;
     o["y"] = Number(o["endTime"])/DIV_FOR_SCALE;
     o["elapsedTime"] = Number(o["elapsedTime"])/DIV_FOR_SCALE;
+    o["file"] = o["source"].slice(1, o["source"].indexOf(":"));
 
     // Build label for tooltip.
     o["label"] = `UID: ${i}\nelapsedTime: ${o["elapsedTime"]}\nsource: ${o["source"]}`;
 
     // Push modified object to an array (needed by Victory).
-    console.log("Modified o:");
-    console.log(o);
     rData.push(o);
   }
 
@@ -148,11 +176,22 @@ function getSourceForLocation(loc) {
   return theSource;
 }
 
+function getSourcesFromData(data) {
+  let sourceFiles = new Set();
+
+  console.log(data);
+
+  for (var i = 0; i < data.length; i++) {
+    var o = data[i];
+    sourceFiles.add(o["source"].slice(1, o["source"].indexOf(":")));
+  }
+
+  return Array.from(sourceFiles);
+}
+
 // Initial data array.
 let data = processJSON(dataObj);
-
-console.log(dataObj);
-console.log(data);
+let initDropdownItems = getSourcesFromData(data);
 
 // Debug: what is the data array?
 // console.log(data);
@@ -212,6 +251,19 @@ class SourceLabel extends React.Component {
 //   }
 // }
 
+function getMaxElapsedTime(data) {
+  var max = 0;
+  for (var i = 0; i < data.length; i ++) {
+    var o = data[i];
+
+    max = Math.max(max, o["elapsedTime"]);
+  }
+
+  console.log(`max: ${max}`);
+
+  return max;
+}
+
 SourceLabel.defaultEvents = VictoryTooltip.defaultEvents;
 
 // This is the component that we want to modify --- this creates the visualization.
@@ -223,8 +275,43 @@ class Main extends React.Component {
     this.state = {
       externalMutations: undefined,
       theData: data,
+      displayData: data,
+      sourceSelectorList: initDropdownItems,
+      filterBySelectedSource: false,
+      selectedSourceFile: "none",
+      filterByElapsedTime: false,
+      minElapsedTime: 0,
+      maxElapsedTime: getMaxElapsedTime(data),
       sourceToDisplay: "// promise source will appear here"
     };
+  }
+
+  // For handling the source dropdown
+  handleSelectChange(selectedValue) {
+
+    let displayMe = [];
+
+    console.log("selected value")
+    console.log(selectedValue)
+
+    console.log("this.state.theData:")
+    console.log(this.state.theData)
+
+    // Update displayData
+    for (var i = 0; i < this.state.theData.length; i++) {
+      let o = this.state.theData[i];
+
+      if (o["file"] == selectedValue)
+        displayMe.push(o);
+    }
+
+    console.log(displayMe);
+
+    this.setState({
+      displayData: displayMe,
+      filterBySelectedSource: true,
+      selectedSourceFile: selectedValue
+    });
   }
 
   // For removing the mutations.
@@ -255,10 +342,17 @@ class Main extends React.Component {
     let fileReader = new FileReader();
 
     fileReader.onloadend = ((e) => {
+      let newData = processJSON(JSON.parse(fileReader.result).promises);
       this.setState({
-        // dataFile: e,
         loaded: 0,
-        theData: processJSON(JSON.parse(fileReader.result).promises)
+        theData: newData,
+        displayData: newData,
+        sourceSelectorList: getSourcesFromData(newData),
+        filterBySelectedSource: false,
+        filterByElapsedTime: false,
+        minElapsedTime: 0,
+        maxElapsedTime: getMaxElapsedTime(newData),
+        selectedSourceFile: "none"
       })
     }).bind(this);
 
@@ -292,6 +386,73 @@ class Main extends React.Component {
     // fileReader.readAsText(event.target.files[0]);
   }
 
+  // handleUpdateForElapsedFilter() {
+  //   function filterDataForDisplay(data) {
+  //     var newData = [];
+  //     for (var i = 0; i < data.length; i++) {
+  //       var o = data[i];
+  //       // For readability. You can optimize this probably.
+  //       var elapsedFilterBool = (!this.state.filterByElapsedTime || (this.state.filterByElapsedTime && o.elapsedTime >= this.state.minElapsedTime && o.elapsedTime <= this.state.maxElapsedTime));
+  //       // var sourceFilterBool = (!this.state.filterBySelectedSource || (this.staet.filterBySelectedSource && ))
+  //       if (elapsedFilterBool)       
+  //         newData.push(o);
+  //     }
+  //   }
+  //   this.setState({
+  //     displayData: filterDataForDisplay(this.state.displayData)
+  //   })
+  // }
+
+  handleChangeMin(event) {
+
+    var newData = [];
+
+    for (var i = 0; i < this.state.theData.length; i++) {
+      var o = this.theData.data[i];
+
+      // For readability. You can optimize this probably.
+      var elapsedFilterBool = o.elapsedTime >= event.target.value && o.elapsedTime <= this.state.maxElapsedTime;
+
+      if (elapsedFilterBool)
+        newData.push(o);
+    }
+
+    this.setState({
+      displayData: newData,
+      filterByElapsedTime: true,
+      minElapsedTime: event.target.value});
+  }
+
+  handleSubmitMin(event) {
+    // alert('A min was submitted: ' + this.state.minElapsedTime);
+    event.preventDefault();
+  }
+
+  handleChangeMax(event) {
+
+    var newData = [];
+
+    for (var i = 0; i < this.state.theData.length; i++) {
+      var o = this.state.theData[i];
+
+      // For readability. You can optimize this probably.
+      var elapsedFilterBool = o.elapsedTime >= this.state.minElapsedTime && o.elapsedTime <= event.target.value;
+
+      if (elapsedFilterBool)
+        newData.push(o);
+    }
+
+    this.setState({
+      displayData: newData,
+      filterByElapsedTime: true,
+      maxElapsedTime: event.target.value});
+  }
+
+  handleSubmitMax(event) {
+    // alert('A max was submitted: ' + this.state.maxElapsedTime);
+    event.preventDefault();
+  }
+
   render() {
     // Makes the reset button.
     const buttonStyle = {
@@ -319,6 +480,34 @@ class Main extends React.Component {
           Redraw
         </button> */}
         <h1>Promise Visualizer</h1>
+        <p>
+          <div>
+            Select files to view promise chains originating in them.
+          </div>
+          <DynamicSelect 
+            arrayOfData={this.state.sourceSelectorList} 
+            onSelectChange={this.handleSelectChange.bind(this)}
+          />
+        </p>
+        <p>
+          <div>
+            Filter promises based on elapsed time.
+          </div>
+          <form onSubmit={this.handleSubmitMin.bind(this)}>
+            <label>
+              Min elapsed time:
+              <input type="text" value={this.state.minElapsedTime} onChange={this.handleChangeMin.bind(this)} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+          <form onSubmit={this.handleSubmitMax.bind(this)}>
+            <label>
+              Max elapsed time:
+              <input type="text" value={this.state.maxElapsedTime} onChange={this.handleChangeMax.bind(this)} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        </p>
         <VictoryChart
           style={{parent: {maxWidth: "70%"}}}
           width={600}
@@ -397,9 +586,10 @@ class Main extends React.Component {
             horizontal 
             name="main-interval"
             labelComponent={<VictoryTooltip constrainToVisibleArea/>}
+            // samples prop does nothing
             // labels={({ datum }) => `${source}`}
             // labelComponent={<SourceLabel />}
-            data={this.state.theData}
+            data={this.state.displayData}
           />
         </VictoryChart>
         {/* For the Source Area on the right: 
