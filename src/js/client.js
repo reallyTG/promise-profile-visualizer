@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryLabel, VictoryChart, VictoryTheme, VictoryTooltip, VictoryVoronoiTooltip, VictoryZoomContainer } from 'victory';
 import jsonData from '../../data/the.json';
+import Prism from "prismjs"
 
 // For the code region:
 import Editor from 'react-simple-code-editor'
@@ -9,6 +10,9 @@ import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
+import 'prismjs/plugins/line-highlight/prism-line-highlight'
+
+console.log(Prism.plugins);
 
 // For the dropdown
 class DynamicSelect extends Component {
@@ -91,89 +95,6 @@ function processJSON(theDataObj) {
   }
 
   return rData;
-}
-
-function getSourceForLocation(loc) {
-  let source = "";
-
-  // Parse loc to get the a) file name, and b) location of the relevant bit.
-  // Example: (sequential.js:5:9:5:23)
-  // Split on 1st ":".
-  let pos = loc.indexOf(":");
-  // Slicing from 1 b/c we want to get rid of opening "(".
-  let fileName = loc.slice(1, pos);
-  // Slicing up to len - 1 b/c we want to get rid of closing ")".
-  let indexInFile = loc.slice(pos+1, loc.length - 1);
-
-  // There are three more indices in the name.
-  let r1, r2, c1, c2;
-  let i = 0;
-  for (; i < 3; i ++) {
-    pos = indexInFile.indexOf(":");
-    if (i == 0) {
-      r1 = Number(indexInFile.slice(0, pos));
-      indexInFile = indexInFile.slice(pos+1, indexInFile.length);
-    } else if (i == 1) {
-      c1 = Number(indexInFile.slice(0, pos));
-      indexInFile = indexInFile.slice(pos+1, indexInFile.length);
-    } else {
-      r2 = Number(indexInFile.slice(0, pos));
-      c2 = Number(indexInFile.slice(pos+1, indexInFile.length));
-    }
-  }
-
-  r1 -= 1;
-  r2 -= 1;
-
-  // Find row, then column:
-  let theSource = sourceFiles[fileName];
-  // let parsingString = false;
-  let theChar = "";
-  let rowsToGo = r1;
-  for (i = 0; i < theSource.length; i++) {
-    theChar = theSource[i];
-
-    if (rowsToGo == 0) {
-      // We found the start row.
-      // Find start column.
-      i += c1;
-      break;
-    }
-
-    if (theChar == "\n") {
-      rowsToGo--;
-    }
-  }
-
-  rowsToGo = r2 - r1;
-  let start = i;
-  let j = i;
-
-  if (r1 == r2) {
-    j = start + c2 - c1;
-  } else {
-    for (; j < theSource.length; j++) {
-      theChar = theSource[j];
-  
-      if (rowsToGo == 0) {
-          j += c2;
-          break;
-      }
-  
-      if (theChar == "\n") {
-        rowsToGo--;
-      }
-    }
-  }
-
-  // This is the source that we want to highlight.
-  let sourceToHighlight = theSource.slice(start - 1, j);
-
-  // For now: Construct a new source with some shit around the promise.
-  // let retSource = theSource.slice(0, start - 1) + " ### " + sourceToHighlight + " ### " + theSource.slice(j, theSource.length);
-  // Actually, we should be able to play with the pre.
-
-  return theSource;
 }
 
 function getSourcesFromData(data) {
@@ -266,23 +187,54 @@ function getMaxElapsedTime(data) {
 
 SourceLabel.defaultEvents = VictoryTooltip.defaultEvents;
 
+class PrismCode extends React.Component {
+  constructor(props) {
+    super(props)
+    this.ref = React.createRef()
+  }
+  componentDidMount() {
+    this.highlight()
+  }
+  componentDidUpdate() {
+    this.highlight()
+  }
+  highlight() {
+    if (this.ref && this.ref.current) {
+      Prism.highlightElement(this.ref.current)
+    }
+  }
+  render() {
+    const { code, plugins, language, linesToHighlight } = this.props
+    return (
+      <pre className={!plugins ? "" : plugins.join(" ")} data-line={linesToHighlight}>
+        <code ref={this.ref} className={`language-${language}`}>
+          {code.trim()}
+        </code>
+      </pre>
+    )
+  }
+}
+
 // This is the component that we want to modify --- this creates the visualization.
 class Main extends React.Component {
 
   // Constructor: to enable mutation, need externalMutations field.
   constructor() {
     super();
+
     this.state = {
       externalMutations: undefined,
       theData: data,
       displayData: data,
       sourceSelectorList: initDropdownItems,
       filterBySelectedSource: false,
-      selectedSourceFile: "none",
+      selectedSourceFiles: "none",
       filterByElapsedTime: false,
       minElapsedTime: 0,
       maxElapsedTime: getMaxElapsedTime(data),
-      sourceToDisplay: "// promise source will appear here"
+      sourceToDisplay: "// promise code will appear here...\n// note that there are \n// multiple lines",
+      loadedSources: {},
+      highlightArea: "1-2"
     };
   }
 
@@ -352,7 +304,9 @@ class Main extends React.Component {
         filterByElapsedTime: false,
         minElapsedTime: 0,
         maxElapsedTime: getMaxElapsedTime(newData),
-        selectedSourceFile: "none"
+        selectedSourceFile: "none",
+        loadedSources: {},
+        highlightArea: "1-2"
       })
     }).bind(this);
 
@@ -360,48 +314,50 @@ class Main extends React.Component {
   }
 
   onReadSource(event) {
-    // For the jump-to-source:
-    let fileReader = new FileReader();
 
-    function readSourceFile(evt, file) {
-      // console.log(evt.target.result);
-      sourceFiles[file.name] = evt.target.result;
+    // Get files from the event.
+    let files = event.target.files;
 
-      // console.log(sourceFiles);
-    }
+    // Update the state with this after.
+    let newLoadedSources = {};
 
-    function parseData(entries){
-      for (var i=0; i<entries.length; i++) {
-        fileReader.onloadend = (function(file) {
-          return function(evt) {
-            readSourceFile(evt, file)
-          };
-        })(entries[i]);
-        fileReader.readAsText(entries[i]);
+    // For parallelism.
+    let processTheseFiles = {};
+
+    for (let i=0; i<files.length; i++) {
+      let filePathMinusRoot = files[i].webkitRelativePath.slice(files[i].webkitRelativePath.indexOf("/") + 1);
+      if (this.state.sourceSelectorList.includes(filePathMinusRoot)) {
+        processTheseFiles[filePathMinusRoot] = files[i];
       }
     }
 
-    parseData(event.target.files);
+    let numToComplete = Object.keys(processTheseFiles).length;
+    console.log(`Need to read ${numToComplete} files.`);
 
-    // fileReader.readAsText(event.target.files[0]);
+    // Only load files which originate promises.
+    // for (let i=0; i<processTheseFiles.length; i++) {
+    for (let fileName in processTheseFiles) {
+      console.log("Looping...");
+      // Need to read the file.
+      // New one for each file we want to read? Maximum parallelism.
+      let fileReader = new FileReader();
+      fileReader.onloadend = ((evt) => {
+        console.log("Finished reading file.");
+        newLoadedSources[fileName] = evt.target.result;
+        numToComplete--;
+
+        if (numToComplete == 0) {
+          // We are done. Update the state.
+          // console.log(newLoadedSources);
+          this.setState({
+            loadedSources: newLoadedSources
+          });
+        }
+      }).bind(this);
+
+      fileReader.readAsText(processTheseFiles[fileName]);
+    }
   }
-
-  // handleUpdateForElapsedFilter() {
-  //   function filterDataForDisplay(data) {
-  //     var newData = [];
-  //     for (var i = 0; i < data.length; i++) {
-  //       var o = data[i];
-  //       // For readability. You can optimize this probably.
-  //       var elapsedFilterBool = (!this.state.filterByElapsedTime || (this.state.filterByElapsedTime && o.elapsedTime >= this.state.minElapsedTime && o.elapsedTime <= this.state.maxElapsedTime));
-  //       // var sourceFilterBool = (!this.state.filterBySelectedSource || (this.staet.filterBySelectedSource && ))
-  //       if (elapsedFilterBool)       
-  //         newData.push(o);
-  //     }
-  //   }
-  //   this.setState({
-  //     displayData: filterDataForDisplay(this.state.displayData)
-  //   })
-  // }
 
   handleChangeMin(event) {
 
@@ -425,7 +381,7 @@ class Main extends React.Component {
 
   handleSubmitMin(event) {
     // alert('A min was submitted: ' + this.state.minElapsedTime);
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   handleChangeMax(event) {
@@ -450,7 +406,11 @@ class Main extends React.Component {
 
   handleSubmitMax(event) {
     // alert('A max was submitted: ' + this.state.maxElapsedTime);
-    event.preventDefault();
+    // event.preventDefault();
+  }
+
+  componentDidMount() {
+    Prism.highlightAll();
   }
 
   render() {
@@ -471,14 +431,8 @@ class Main extends React.Component {
         >
           Reset
         </button>
-        <input type="file" name="file" onChange={this.onChangeHandler.bind(this)}/>
-        <input type="file" name="file" onChange={this.onReadSource.bind(this)}/>
-        {/* <button
-          onClick={this.redraw.bind(this)}
-          style={buttonStyle}
-        >
-          Redraw
-        </button> */}
+        <input name="selectProfile" type="file" onChange={this.onChangeHandler.bind(this)}/>
+        <input name="selectRootDir" type="file" onChange={this.onReadSource.bind(this)} webkitdirectory="" directory=""/>
         <h1>Promise Visualizer</h1>
         <p>
           <div>
@@ -491,7 +445,7 @@ class Main extends React.Component {
         </p>
         <p>
           <div>
-            Filter promises based on elapsed time.
+            Filter promises based on elapsed time. TODO: Turn this into a box select menu.
           </div>
           <form onSubmit={this.handleSubmitMin.bind(this)}>
             <label>
@@ -521,7 +475,7 @@ class Main extends React.Component {
           events={[
             {
               target: "data",
-              childName: ["main-interval", "source-area"], // "main-interval",
+              childName: ["main-interval", "source-area"],
               eventHandlers: {
                 onClick: () => {
                   return [
@@ -537,16 +491,118 @@ class Main extends React.Component {
                       mutation: (props) => {
                         this.clearClicks
                         // Ok. Here, props.datum is the thing that was clicked on.
-                        // Let's try to get it to print the correct file contents...
-
                         let datum = props.datum;
-                        // console.log("Source: " + getSourceForLocation(datum.source));
+                        
+                        // We will need this.
+                        // AFAIK: This function is debugged.
+                        function getSourceForLocation(loc, sources) {
+                          let source = "";
+                        
+                          // Parse loc to get the a) file name, and b) location of the relevant bit.
+                          // Example: (sequential.js:5:9:5:23)
+                          // Split on 1st ":".
+                          let pos = loc.indexOf(":");
+                          // Slicing from 1 b/c we want to get rid of opening "(".
+                          let fileName = loc.slice(1, pos);
+                          // Slicing up to len - 1 b/c we want to get rid of closing ")".
+                          let indexInFile = loc.slice(pos+1, loc.length - 1);
+                        
+                          // There are three more indices in the name.
+                          let r1, r2, c1, c2;
+                          let i = 0;
+                          for (; i < 3; i ++) {
+                            pos = indexInFile.indexOf(":");
+                            if (i == 0) {
+                              r1 = Number(indexInFile.slice(0, pos));
+                              indexInFile = indexInFile.slice(pos+1, indexInFile.length);
+                            } else if (i == 1) {
+                              c1 = Number(indexInFile.slice(0, pos));
+                              indexInFile = indexInFile.slice(pos+1, indexInFile.length);
+                            } else {
+                              r2 = Number(indexInFile.slice(0, pos));
+                              c2 = Number(indexInFile.slice(pos+1, indexInFile.length));
+                            }
+                          }
+                        
+                          r1 -= 1;
+                          r2 -= 1;
+                        
+                          // Find row, then column:
+                          let theSource = sources[fileName];
+                          // let parsingString = false;
+                          let theChar = "";
+                          let rowsToGo = r1;
+                          for (i = 0; i < theSource.length; i++) {
+                            theChar = theSource[i];
+                        
+                            if (rowsToGo == 0) {
+                              // We found the start row.
+                              // Find start column.
+                              i += c1;
+                              break;
+                            }
+                        
+                            if (theChar == "\n") {
+                              rowsToGo--;
+                            }
+                          }
+                        
+                          rowsToGo = r2 - r1;
+                          let start = i;
+                          let j = i;
+                        
+                          if (r1 == r2) {
+                            j = start + c2 - c1;
+                          } else {
+                            for (; j < theSource.length; j++) {
+                              theChar = theSource[j];
+                          
+                              if (rowsToGo == 0) {
+                                  j += c2;
+                                  break;
+                              }
+                          
+                              if (theChar == "\n") {
+                                rowsToGo--;
+                              }
+                            }
+                          }
+                        
+                          // Move r1 and r2 up by one, cause of starting at line 1 not line 0.
+                          r1++;
+                          r2++;
 
-                        // return { text: getSourceForLocation(datum.source) }
-                        // return { text: "Goodbye world, lol." };
+                          // This is the source that we want to highlight.
+                          // let sourceToHighlight = theSource.slice(start - 1, j);
+                          // let editorTextArea = document.getElementById("editor-text-area");
+                          // editorTextArea.setSelectionRange(start - 1, j);
+                          // console.log(editorTextArea);
+                          
+                          // There's only one.
+                          // let areaPre = document.getElementById("editor-pre");
+                          // areaPre.setAttribute("data-line", "10");
+
+                          // console.log(areaPre);
+
+                          // For now: Construct a new source with some shit around the promise.
+                          // let retSource = theSource.slice(0, start - 1) + " ### " + sourceToHighlight + " ### " + theSource.slice(j, theSource.length);
+                          // Actually, we should be able to play with the pre.
+                        
+                          return {theSource: theSource,
+                                  lineRange: r1 + "-" + r2};
+                        }
+
+                        let sourceAndRange = getSourceForLocation(datum.source, this.state.loadedSources);
+
+                        // console.log(Object.keys(Prism.plugins));
+
+                        // There's only one.
+                        // let sourceEditorPre = document.getElementsByClassName("editor-pre line-highlight")[0];
+                        // sourceEditorPre.setAttribute("data-line", sourceAndRange["lineRange"]);
 
                         this.setState({
-                          sourceToDisplay: getSourceForLocation(datum.source),
+                          sourceToDisplay: sourceAndRange["theSource"],
+                          highlightArea: sourceAndRange["lineRange"]
                         });
 
                         return {
@@ -554,10 +610,6 @@ class Main extends React.Component {
                         };
                     }
                 }]},
-                // onClick: (event) => {
-                //   console.log(event);
-                //   // alert(`Source location: ${event}`)
-                // },
                 onMouseOver: () => {
                   return [{
                     target: "data",
@@ -594,8 +646,9 @@ class Main extends React.Component {
         </VictoryChart>
         {/* For the Source Area on the right: 
             Hopefully it can still communicate with main-interval... */}
-        <Editor
+        {/* <Editor
           name = "source-area"
+          preClassName = "editor-pre line-highlight"
           value = {this.state.sourceToDisplay}
           onValueChange = {code => this.setState({ code })}
           highlight = {code => highlight(code, languages.js)}
@@ -604,11 +657,18 @@ class Main extends React.Component {
             fontFamily: '"Fira code", "Fira Mono", monospace',
             fontSize: 12,
           }}
-        />
-        {/* <VictoryLabel {...this.props}
-          name="source-area"
-          text = { this.state.sourceToDisplay }
         /> */}
+        <PrismCode
+          code={this.state.sourceToDisplay}
+          language="js"
+          plugins={["line-highlight", "line-number"]}
+          linesToHighlight={this.state.highlightArea}
+        />
+        {/* <pre className="language-javascript" id="editor-pre" data-line={this.state.highlightArea}>
+            <code className="language-javascript">
+              {this.state.sourceToDisplay}
+            </code>
+        </pre> */}
       </div>
     );
   }
