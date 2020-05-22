@@ -129,7 +129,7 @@ class PrismCode extends React.Component {
   render() {
     const { code, plugins, language, linesToHighlight } = this.props
     return (
-      <pre className={!plugins ? "" : plugins.join(" ")} data-line={linesToHighlight}>
+      <pre id="code-area" className={!plugins ? "" : plugins.join(" ")} data-line={linesToHighlight}>
         <code ref={this.ref} className={`language-${language}`}>
           {code.trim()}
         </code>
@@ -147,6 +147,7 @@ class Main extends React.Component {
 
     this.state = {
       externalMutations: undefined,
+      regexFilter: "",
       theData: data,
       displayData: data,
       sourceSelectorList: initDropdownItems,
@@ -158,7 +159,8 @@ class Main extends React.Component {
       maxElapsedTime: getMaxElapsedTime(data),
       sourceToDisplay: "// promise code will appear here...\n// and the promise will be highlighted like this \n// for your convenience",
       loadedSources: {},
-      highlightArea: "2"
+      highlightArea: "2",
+      ogWindowLocation: window.location
     };
   }
 
@@ -171,6 +173,7 @@ class Main extends React.Component {
       this.setState({
         loaded: 0,
         externalMutations: undefined,
+        regexFilter: "",
         theData: newData,
         displayData: newData,
         sourceSelectorList: getSourcesFromData(newData),
@@ -267,6 +270,17 @@ class Main extends React.Component {
       displayData: displayMe,
       filesToFilterOut: selectedList
     });
+  }
+
+  handleChangeToRegexFilter(event) {
+    this.setState({
+      regexFilter: event.target.value
+    })
+  }
+
+  handleAddSourceToIgnore(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
   }
 
   // For removing the mutations.
@@ -421,6 +435,7 @@ class Main extends React.Component {
 
     return (
       <div>
+        <script src="https://ssvg.io/ssvg-auto.js"></script>
         {/* Reset button, style specified above. */}
         <button
           onClick={this.clearMutations.bind(this)}
@@ -453,6 +468,14 @@ class Main extends React.Component {
             onRemove={this.handleRemoveSourceToIgnore.bind(this)}
           />
         </p>
+        {/* TODO: finish this. */}
+        <form onSubmit={this.handleSubmitFilterRegex}>
+          <label>
+            Filter displayed files by regex:
+            <input type="text" value={this.state.regexFilter} onChange={this.handleChangeToRegexFilter.bind(this)} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
         <p>
           <div>
             Filter promises based on elapsed time.
@@ -606,6 +629,10 @@ class Main extends React.Component {
                             highlightArea: sourceAndRange["lineRange"]
                           });
   
+                          // Update window location to jump to source.
+                          // TODO: the window keeps snapping here...
+                          // window.location = this.state.ogWindowLocation + `#code-area.${sourceAndRange["lineRange"]}`;
+
                           return {
                             style: Object.assign({}, props.style, {fill: "tomato"})
                           };
