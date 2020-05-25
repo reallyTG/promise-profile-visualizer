@@ -34,6 +34,8 @@
     "multiselect-react-dropdown": "^1.4.8",
     "prismjs": "^1.20.0",
     "react-simple-code-editor": "^0.11.0",
+    "react-vis": "^1.11.7",
+    "recharts": "^1.8.5",
     "style-loader": "^1.2.0",
     "victory": "~0.26.0"
   }
