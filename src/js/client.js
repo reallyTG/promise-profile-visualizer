@@ -147,7 +147,8 @@ class Main extends React.Component {
 
     this.state = {
       externalMutations: undefined,
-      regexFilter: "",
+      regexFilter: "*",
+      regexFilterOut: "test",
       theData: data,
       displayData: data,
       sourceSelectorList: initDropdownItems,
@@ -420,6 +421,76 @@ class Main extends React.Component {
     // event.preventDefault();
   }
 
+  handleSubmitFilterRegex(event) {
+
+  }
+
+  handleSubmitFilterOutRegex(event) {
+
+  }
+
+  handleChangeToRegexFilter(event) {
+    // for Regex matching
+    var newData = [];
+
+    try {
+      new RegExp(event.target.value)
+    } catch(e) {
+      console.log("Invalid Regex.")
+      this.setState({regexFilter: event.target.value});
+      return false;
+    }
+
+    for (var i = 0; i < this.state.theData.length; i++) {
+      var o = this.state.theData[i];
+
+      // For readability. You can optimize this probably.
+      var condition = o.source.match(event.target.value);
+
+      if (condition) {
+        console.log(o.source + " matched " + event.target.value);
+        newData.push(o);
+      } else {
+
+      }
+    }
+
+    this.setState({
+      displayData: newData,
+      regexFilter: event.target.value});
+  }
+
+  handleChangeToRegexFilterOut(event) {
+    // for Regex matching
+    var newData = [];
+
+    try {
+      new RegExp(event.target.value)
+    } catch(e) {
+      console.log("Invalid Regex.")
+      this.setState({regexFilterOut: event.target.value});
+      return false;
+    }
+
+    for (var i = 0; i < this.state.theData.length; i++) {
+      var o = this.state.theData[i];
+
+      // For readability. You can optimize this probably.
+      var condition = ! o.source.match(event.target.value);
+
+      if (condition) {
+        console.log(o.source + " matched " + event.target.value);
+        newData.push(o);
+      } else {
+
+      }
+    }
+
+    this.setState({
+      displayData: newData,
+      regexFilterOut: event.target.value});
+  }
+
   componentDidMount() {
     Prism.highlightAll();
   }
@@ -446,7 +517,7 @@ class Main extends React.Component {
         <input name="selectProfile" type="file" onChange={this.onChangeHandler.bind(this)}/>
         <input name="selectRootDir" type="file" onChange={this.onReadSource.bind(this)} webkitdirectory="" directory=""/>
         <h1>Promise Visualizer</h1>
-        <p>
+
           <div>
             Select files to view promise chains originating in them.
           </div>
@@ -456,8 +527,6 @@ class Main extends React.Component {
             onSelect={this.handleAddSourceToDisplay.bind(this)}
             onRemove={this.handleRemoveSourceToDisplay.bind(this)}
           />
-        </p>
-        <p>
           <div>
             Select files to *ignore* promise chains originating in them.
           </div>
@@ -467,16 +536,21 @@ class Main extends React.Component {
             onSelect={this.handleAddSourceToIgnore.bind(this)}
             onRemove={this.handleRemoveSourceToIgnore.bind(this)}
           />
-        </p>
-        {/* TODO: finish this. */}
-        <form onSubmit={this.handleSubmitFilterRegex}>
+        <form onSubmit={this.handleSubmitFilterRegex.bind(this)}>
           <label>
             Filter displayed files by regex:
             <input type="text" value={this.state.regexFilter} onChange={this.handleChangeToRegexFilter.bind(this)} />
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <p>
+        <form onSubmit={this.handleSubmitFilterOutRegex.bind(this)}>
+          <label>
+            Filter *out* displayed files by regex:
+            <input type="text" value={this.state.regexFilterOut} onChange={this.handleChangeToRegexFilterOut.bind(this)} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+
           <div>
             Filter promises based on elapsed time.
           </div>
@@ -494,7 +568,6 @@ class Main extends React.Component {
             </label>
             <input type="submit" value="Submit" />
           </form>
-        </p>
         <VictoryChart
           style={{parent: {maxWidth: "70%"}}}
           width={600}

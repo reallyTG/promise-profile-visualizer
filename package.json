@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/FormidableLabs/victory-tutorial#readme",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-prismjs": "^2.0.1",
@@ -28,13 +28,13 @@
     "react-dom": "^16.13.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "multiselect-react-dropdown": "^1.4.8",
+    "multiselect-react-dropdown": "^1.5.0",
     "prismjs": "^1.20.0",
     "react-simple-code-editor": "^0.11.0",
-    "style-loader": "^1.2.0",
+    "style-loader": "^1.2.1",
     "victory": "~0.26.0"
   }
 }
