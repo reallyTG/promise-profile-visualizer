@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { VictoryBar, VictoryChart, VictoryTheme, VictoryTooltip, VictoryZoomContainer } from 'victory';
+// import { VictoryBar, VictoryLabel, VictoryChart, VictoryTheme, VictoryTooltip, VictoryVoronoiTooltip, VictoryZoomContainer } from 'victory';
 import jsonData from '../../data/the.json';
-import Prism from "prismjs"
-import { Multiselect } from "multiselect-react-dropdown"
+import Prism from "prismjs";
+import { Multiselect } from "multiselect-react-dropdown";
+import { BarChart, Bar } from 'recharts';
 
 // For the code region:
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 import 'prismjs/plugins/line-highlight/prism-line-highlight'
+// import { VictoryScatter } from 'victory';
 
 // From ./components.js
 import {SourceLabel, PrismCode} from './components';
@@ -43,10 +45,13 @@ function processJSON(theDataObj) {
       continue;
 
     // Edit the object contents.
-    o["x"] = Number(i);
+    // o["x"] = Number(i);
+    o["y"] = Number(i);
     // Turn the strings into numbers.
-    o["y0"] = Number(o["startTime"])/DIV_FOR_SCALE;
-    o["y"] = Number(o["endTime"])/DIV_FOR_SCALE;
+    // o["y0"] = Number(o["startTime"])/DIV_FOR_SCALE;
+    // o["y"] = Number(o["endTime"])/DIV_FOR_SCALE;
+    o["x"] = Number(o["endTime"])/DIV_FOR_SCALE;
+    o["x0"] = Number(o["startTime"])/DIV_FOR_SCALE;
     o["elapsedTime"] = Number(o["elapsedTime"])/DIV_FOR_SCALE;
     o["file"] = o["source"].slice(1, o["source"].indexOf(":"));
 
@@ -56,6 +61,8 @@ function processJSON(theDataObj) {
     // Push modified object to an array (needed by Victory).
     rData.push(o);
   }
+
+  console.log(rData);
 
   return rData;
 }
@@ -86,7 +93,7 @@ function getMaxElapsedTime(data) {
   return max;
 }
 
-SourceLabel.defaultEvents = VictoryTooltip.defaultEvents;
+// SourceLabel.defaultEvents = VictoryTooltip.defaultEvents;
 
 // This is the component that we want to modify --- this creates the visualization.
 class Main extends React.Component {
@@ -267,7 +274,7 @@ class Main extends React.Component {
           mutation: (p) => {
             if (p.datum.source == sourceToRelate)
               return { style: {fill: "tomato"}}
-            else 
+            else
               return { style: undefined }
           },
           callback: this.removeMutation.bind(this)
@@ -518,7 +525,16 @@ class Main extends React.Component {
             </label>
             <input type="submit" value="Submit" />
           </form>
-        <VictoryChart
+        </p>
+        <BarChart width={600} height={300} data={this.state.displayData} layout='horizontal'>
+          {/* <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend /> */}
+          <Bar dataKey="x" fill="#8884d8" />
+        </BarChart>
+        {/* <VictoryChart
           style={{parent: {maxWidth: "70%"}}}
           width={600}
           height={300}
@@ -530,11 +546,10 @@ class Main extends React.Component {
           // Possible events:
           // These moved into the VictoryBar so as to get the tooltips to work correctly.
         >
-          {/* The main visualization: */}
-          <VictoryBar 
-            horizontal 
+          <VictoryBar
+            horizontal
             name="main-interval"
-            labelComponent={<VictoryTooltip 
+            labelComponent={<VictoryTooltip
               constrainToVisibleArea/>}
             data={this.state.displayData}
             style={{
@@ -548,8 +563,8 @@ class Main extends React.Component {
                   onClick: () => {
                     return [
                       // Enqueue an event to clear formatting on data points.
-                      { target: "data", 
-                        childName: "main-interval", 
+                      { target: "data",
+                        childName: "main-interval",
                         eventKey: "all",
                         mutation: () => ({ style: undefined })
                       },
@@ -560,10 +575,10 @@ class Main extends React.Component {
                           this.clearClicks;
                           // Ok. Here, props.datum is the thing that was clicked on.
                           let datum = props.datum;
-                          
+
                           function getSourceForLocation(loc, sources) {
                             let source = "";
-                          
+
                             // Parse loc to get the a) file name, and b) location of the relevant bit.
                             // Example: (sequential.js:5:9:5:23)
                             // Split on 1st ":".
@@ -572,7 +587,7 @@ class Main extends React.Component {
                             let fileName = loc.slice(1, pos);
                             // Slicing up to len - 1 b/c we want to get rid of closing ")".
                             let indexInFile = loc.slice(pos+1, loc.length - 1);
-                          
+
                             // There are three more indices in the name.
                             let r1, r2, c1, c2;
                             let i = 0;
@@ -589,10 +604,10 @@ class Main extends React.Component {
                                 c2 = Number(indexInFile.slice(pos+1, indexInFile.length));
                               }
                             }
-                          
+
                             r1 -= 1;
                             r2 -= 1;
-                          
+
                             // Find row, then column:
                             let theSource = sources[fileName];
                             // let parsingString = false;
@@ -600,58 +615,58 @@ class Main extends React.Component {
                             let rowsToGo = r1;
                             for (i = 0; i < theSource.length; i++) {
                               theChar = theSource[i];
-                          
+
                               if (rowsToGo == 0) {
                                 // We found the start row.
                                 // Find start column.
                                 i += c1;
                                 break;
                               }
-                          
+
                               if (theChar == "\n") {
                                 rowsToGo--;
                               }
                             }
-                          
+
                             rowsToGo = r2 - r1;
                             let start = i;
                             let j = i;
-                          
+
                             if (r1 == r2) {
                               j = start + c2 - c1;
                             } else {
                               for (; j < theSource.length; j++) {
                                 theChar = theSource[j];
-                            
+
                                 if (rowsToGo == 0) {
                                     j += c2;
                                     break;
                                 }
-                            
+
                                 if (theChar == "\n") {
                                   rowsToGo--;
                                 }
                               }
                             }
-                          
+
                             // Move r1 and r2 up by one, cause of starting at line 1 not line 0.
                             r1++;
                             r2++;
-  
+
                             // This is the source that we want to highlight.
                             // let sourceToHighlight = theSource.slice(start - 1, j);
-                          
+
                             return {theSource: theSource,
                                     lineRange: r1 + "-" + r2};
                           }
-  
+
                           let sourceAndRange = getSourceForLocation(datum.source, this.state.loadedSources);
-  
+
                           this.setState({
                             sourceToDisplay: sourceAndRange["theSource"],
                             highlightArea: sourceAndRange["lineRange"]
                           });
-  
+
                           // Update window location to jump to source.
                           // TODO: the window keeps snapping here...
                           // window.location = this.state.ogWindowLocation + `#code-area.${sourceAndRange["lineRange"]}`;
@@ -692,7 +707,7 @@ class Main extends React.Component {
               }
             ]}
           />
-        </VictoryChart>
+        </VictoryChart> */}
         <PrismCode
           code={this.state.sourceToDisplay}
           language="js"
