@@ -13,11 +13,11 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 import 'prismjs/plugins/line-highlight/prism-line-highlight'
 
+// From ./components.js
+import {SourceLabel, PrismCode} from './components';
 
 // Get the part of the data for plotting.
 let dataObj = jsonData.promises;
-
-let sourceFiles = {};
 
 // Constant to turn the AbsoluteHugeInt into a manageable double.
 let DIV_FOR_SCALE = 100000000000000;
@@ -77,26 +77,6 @@ function getSourcesFromData(data) {
 let data = processJSON(dataObj);
 let initDropdownItems = getSourcesFromData(data);
 
-class SourceLabel extends React.Component {
-  render() {
-    return (
-      <g>
-        <VictoryLabel {...this.props}/>
-        <VictoryTooltip
-          {...this.props}
-          x={120} y={80}
-          orientation="top"
-          pointerLength={0}
-          cornerRadius={5}
-          flyoutWidth={100}
-          flyoutHeight={100}
-          flyoutStyle={{ fill: "white" }}
-        />
-      </g>
-    );
-  }
-}
-
 function getMaxElapsedTime(data) {
   var max = 0;
   for (var i = 0; i < data.length; i ++) {
@@ -109,34 +89,6 @@ function getMaxElapsedTime(data) {
 }
 
 SourceLabel.defaultEvents = VictoryTooltip.defaultEvents;
-
-class PrismCode extends React.Component {
-  constructor(props) {
-    super(props)
-    this.ref = React.createRef()
-  }
-  componentDidMount() {
-    this.highlight()
-  }
-  componentDidUpdate() {
-    this.highlight()
-  }
-  highlight() {
-    if (this.ref && this.ref.current) {
-      Prism.highlightElement(this.ref.current)
-    }
-  }
-  render() {
-    const { code, plugins, language, linesToHighlight } = this.props
-    return (
-      <pre id="code-area" className={!plugins ? "" : plugins.join(" ")} data-line={linesToHighlight}>
-        <code ref={this.ref} className={`language-${language}`}>
-          {code.trim()}
-        </code>
-      </pre>
-    )
-  }
-}
 
 // This is the component that we want to modify --- this creates the visualization.
 class Main extends React.Component {
