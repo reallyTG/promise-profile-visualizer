@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import jsonData from '../../data/the.json';
 import Prism from "prismjs";
 import { Multiselect } from "multiselect-react-dropdown";
-import { BarChart, Bar } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
 // For the code region:
 import 'prismjs/components/prism-clike';
@@ -14,7 +14,10 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight'
 // import { VictoryScatter } from 'victory';
 
 // From ./components.js
-import {SourceLabel, PrismCode} from './components';
+import {SourceLabel, PrismCode, PromiseIntervalLabel} from './components';
+
+// Style Sheets
+import '../css/the.css';
 
 // Get the part of the data for plotting.
 let dataObj = jsonData.promises;
@@ -46,12 +49,12 @@ function processJSON(theDataObj) {
 
     // Edit the object contents.
     // o["x"] = Number(i);
-    o["y"] = Number(i);
+    o["id"] = Number(i);
     // Turn the strings into numbers.
     // o["y0"] = Number(o["startTime"])/DIV_FOR_SCALE;
     // o["y"] = Number(o["endTime"])/DIV_FOR_SCALE;
-    o["x"] = Number(o["endTime"])/DIV_FOR_SCALE;
-    o["x0"] = Number(o["startTime"])/DIV_FOR_SCALE;
+    o["time"] = [Number(o["startTime"])/DIV_FOR_SCALE, Number(o["endTime"])/DIV_FOR_SCALE];
+    // o["time"] = [30, 50];
     o["elapsedTime"] = Number(o["elapsedTime"])/DIV_FOR_SCALE;
     o["file"] = o["source"].slice(1, o["source"].indexOf(":"));
 
@@ -63,6 +66,8 @@ function processJSON(theDataObj) {
   }
 
   console.log(rData);
+
+  rData.reverse();
 
   return rData;
 }
@@ -93,7 +98,48 @@ function getMaxElapsedTime(data) {
   return max;
 }
 
+function getTimeRange(data) {
+  var min = data[1]["startTime"];
+  var max = 0;
+  for (var i = 0; i < data.length; i ++) {
+    var o = data[i];
+
+    min = Math.min(min, o["startTime"]);
+    max = Math.max(max, o["endTime"]);
+  }
+
+  return [min/DIV_FOR_SCALE, max/DIV_FOR_SCALE];
+}
+
 // SourceLabel.defaultEvents = VictoryTooltip.defaultEvents;
+
+// Debug:
+console.log('The data: ')
+console.log(data)
+console.log('Minmax: ')
+console.log(getTimeRange(data))
+
+function getInitialStateFromData(data) {
+  return {
+    externalMutations: undefined,
+    regexFilter: "*",
+    regexFilterOut: "test",
+    theData: data,
+    displayData: data,
+    sourceSelectorList: initDropdownItems,
+    filterBySelectedSource: false,
+    filterByElapsedTime: false,
+    filesToFilterIn: [],
+    filesToFilterOut: [],
+    minElapsedTime: 0,
+    maxElapsedTime: getMaxElapsedTime(data),
+    minMaxTimeRange: getTimeRange(data),
+    sourceToDisplay: "// promise code will appear here...\n// and the promise will be highlighted like this \n// for your convenience",
+    loadedSources: {},
+    highlightArea: "2",
+    ogWindowLocation: window.location
+  }
+}
 
 // This is the component that we want to modify --- this creates the visualization.
 class Main extends React.Component {
@@ -102,24 +148,7 @@ class Main extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      externalMutations: undefined,
-      regexFilter: "*",
-      regexFilterOut: "test",
-      theData: data,
-      displayData: data,
-      sourceSelectorList: initDropdownItems,
-      filterBySelectedSource: false,
-      filterByElapsedTime: false,
-      filesToFilterIn: [],
-      filesToFilterOut: [],
-      minElapsedTime: 0,
-      maxElapsedTime: getMaxElapsedTime(data),
-      sourceToDisplay: "// promise code will appear here...\n// and the promise will be highlighted like this \n// for your convenience",
-      loadedSources: {},
-      highlightArea: "2",
-      ogWindowLocation: window.location
-    };
+    this.state = getInitialStateFromData(data);
   }
 
   // For loading the file.
@@ -128,27 +157,59 @@ class Main extends React.Component {
 
     fileReader.onloadend = ((e) => {
       let newData = processJSON(JSON.parse(fileReader.result).promises);
-      this.setState({
-        loaded: 0,
-        externalMutations: undefined,
-        regexFilter: "",
-        theData: newData,
-        displayData: newData,
-        sourceSelectorList: getSourcesFromData(newData),
-        filterBySelectedSource: false,
-        filterByElapsedTime: false,
-        filesToFilterIn: [],
-        filesToFilterOut: [],
-        minElapsedTime: 0,
-        maxElapsedTime: getMaxElapsedTime(newData),
-        sourceToDisplay: "// promise code will appear here...\n// and the promise will be highlighted like this \n// for your convenience",
-        loadedSources: {},
-        highlightArea: "2"
-      })
+      this.setState(getInitialStateFromData(newData));
+      // this.setState({
+      //   loaded: 0,
+      //   externalMutations: undefined,
+      //   regexFilter: "",
+      //   theData: newData,
+      //   displayData: newData,
+      //   sourceSelectorList: getSourcesFromData(newData),
+      //   filterBySelectedSource: false,
+      //   filterByElapsedTime: false,
+      //   filesToFilterIn: [],
+      //   filesToFilterOut: [],
+      //   minElapsedTime: 0,
+      //   maxElapsedTime: getMaxElapsedTime(newData),
+      //   minMaxTimeRange: getTimeRange(newData),
+      //   sourceToDisplay: "// promise code will appear here...\n// and the promise will be highlighted like this \n// for your convenience",
+      //   loadedSources: {},
+      //   highlightArea: "2"
+      // })
     }).bind(this);
 
     fileReader.readAsText(event.target.files[0]);
   }
+
+  // For Zooming
+  zoom() {  
+  	let { refAreaLeft, refAreaRight, data } = this.state;
+
+		if ( refAreaLeft === refAreaRight || refAreaRight === '' ) {
+    	this.setState( () => ({
+      	refAreaLeft : '',
+        refAreaRight : ''
+      }) );
+    	return;
+    }
+
+		// xAxis domain
+	  if ( refAreaLeft > refAreaRight ) 
+    		[ refAreaLeft, refAreaRight ] = [ refAreaRight, refAreaLeft ];
+
+		// yAxis domain
+    const [ bottom, top ] = getAxisYDomain( refAreaLeft, refAreaRight, 'cost', 1 );
+    const [ bottom2, top2 ] = getAxisYDomain( refAreaLeft, refAreaRight, 'impression', 50 );
+    
+    this.setState( () => ({
+      refAreaLeft : '',
+      refAreaRight : '',
+    	data : data.slice(),
+      left : refAreaLeft,
+      right : refAreaRight,
+      bottom, top, bottom2, top2
+    } ) );
+  };
 
   handleAddSourceToDisplay(selectedList, selectedItem) {
     let displayMe = [];
@@ -452,6 +513,109 @@ class Main extends React.Component {
     Prism.highlightAll();
   }
 
+  clickOnPromiseInterval(barElement) {
+    var datum = barElement.activePayload[0].payload;
+
+    function getSourceForLocation(loc, sources) {
+      let source = "";
+
+      // Parse loc to get the a) file name, and b) location of the relevant bit.
+      // Example: (sequential.js:5:9:5:23)
+      // Split on 1st ":".
+      let pos = loc.indexOf(":");
+      // Slicing from 1 b/c we want to get rid of opening "(".
+      let fileName = loc.slice(1, pos);
+      // Slicing up to len - 1 b/c we want to get rid of closing ")".
+      let indexInFile = loc.slice(pos+1, loc.length - 1);
+
+      // There are three more indices in the name.
+      let r1, r2, c1, c2;
+      let i = 0;
+      for (; i < 3; i ++) {
+        pos = indexInFile.indexOf(":");
+        if (i == 0) {
+          r1 = Number(indexInFile.slice(0, pos));
+          indexInFile = indexInFile.slice(pos+1, indexInFile.length);
+        } else if (i == 1) {
+          c1 = Number(indexInFile.slice(0, pos));
+          indexInFile = indexInFile.slice(pos+1, indexInFile.length);
+        } else {
+          r2 = Number(indexInFile.slice(0, pos));
+          c2 = Number(indexInFile.slice(pos+1, indexInFile.length));
+        }
+      }
+
+      r1 -= 1;
+      r2 -= 1;
+
+      // Find row, then column:
+      let theSource = sources[fileName];
+      // let parsingString = false;
+      let theChar = "";
+      let rowsToGo = r1;
+      for (i = 0; i < theSource.length; i++) {
+        theChar = theSource[i];
+
+        if (rowsToGo == 0) {
+          // We found the start row.
+          // Find start column.
+          i += c1;
+          break;
+        }
+
+        if (theChar == "\n") {
+          rowsToGo--;
+        }
+      }
+
+      rowsToGo = r2 - r1;
+      let start = i;
+      let j = i;
+
+      if (r1 == r2) {
+        j = start + c2 - c1;
+      } else {
+        for (; j < theSource.length; j++) {
+          theChar = theSource[j];
+
+          if (rowsToGo == 0) {
+              j += c2;
+              break;
+          }
+
+          if (theChar == "\n") {
+            rowsToGo--;
+          }
+        }
+      }
+
+      // Move r1 and r2 up by one, cause of starting at line 1 not line 0.
+      r1++;
+      r2++;
+
+      // This is the source that we want to highlight.
+      // let sourceToHighlight = theSource.slice(start - 1, j);
+
+      return {theSource: theSource,
+              lineRange: r1 + "-" + r2};
+    }
+
+    let sourceAndRange = getSourceForLocation(datum.source, this.state.loadedSources);
+
+    this.setState({
+      sourceToDisplay: sourceAndRange["theSource"],
+      highlightArea: sourceAndRange["lineRange"]
+    });
+
+    // Update window location to jump to source.
+    // TODO: the window keeps snapping here...
+    // window.location = this.state.ogWindowLocation + `#code-area.${sourceAndRange["lineRange"]}`;
+
+    // return {
+    //   style: Object.assign({}, props.style, {fill: "tomato"})
+    // };
+  }
+
   render() {
     // Makes the reset button.
     const buttonStyle = {
@@ -474,7 +638,6 @@ class Main extends React.Component {
         <input name="selectProfile" type="file" onChange={this.onChangeHandler.bind(this)}/>
         <input name="selectRootDir" type="file" onChange={this.onReadSource.bind(this)} webkitdirectory="" directory=""/>
         <h1>Promise Visualizer</h1>
-
           <div>
             Select files to view promise chains originating in them.
           </div>
@@ -507,32 +670,33 @@ class Main extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-
-          <div>
-            Filter promises based on elapsed time.
-          </div>
-          <form onSubmit={this.handleSubmitMin.bind(this)}>
-            <label>
-              Min elapsed time:
-              <input type="text" value={this.state.minElapsedTime} onChange={this.handleChangeMin.bind(this)} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-          <form onSubmit={this.handleSubmitMax.bind(this)}>
-            <label>
-              Max elapsed time:
-              <input type="text" value={this.state.maxElapsedTime} onChange={this.handleChangeMax.bind(this)} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        </p>
-        <BarChart width={600} height={300} data={this.state.displayData} layout='horizontal'>
+        <div>
+          Filter promises based on elapsed time.
+        </div>
+        <form onSubmit={this.handleSubmitMin.bind(this)}>
+          <label>
+            Min elapsed time:
+            <input type="text" value={this.state.minElapsedTime} onChange={this.handleChangeMin.bind(this)} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+        <form onSubmit={this.handleSubmitMax.bind(this)}>
+          <label>
+            Max elapsed time:
+            <input type="text" value={this.state.maxElapsedTime} onChange={this.handleChangeMax.bind(this)} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+        <BarChart width={600} height={300} data={this.state.displayData} layout='vertical'
+        onClick={this.clickOnPromiseInterval.bind(this)}>
           {/* <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
           <Legend /> */}
-          <Bar dataKey="x" fill="#8884d8" />
+          <XAxis type="number" domain={this.state.minMaxTimeRange}/>
+          <YAxis type="category" dataKey="id"/>
+          <Tooltip content=<PromiseIntervalLabel/>/>
+          <Bar dataKey="time" fill="#8884d8" 
+          // onClick={this.clickOnPromiseInterval.bind(this)}
+          />
         </BarChart>
         {/* <VictoryChart
           style={{parent: {maxWidth: "70%"}}}
