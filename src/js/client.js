@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import jsonData from '../../data/the.json';
 import Prism from "prismjs";
 import { Multiselect } from "multiselect-react-dropdown";
-import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 
 // For the code region:
 import 'prismjs/components/prism-clike';
@@ -134,12 +134,31 @@ function getInitialStateFromData(data) {
     minElapsedTime: 0,
     maxElapsedTime: getMaxElapsedTime(data),
     minMaxTimeRange: getTimeRange(data),
+    refAreaLeft: getTimeRange(data)[0],
+    refAreaRight: getTimeRange(data)[1],
+    left : 'dataMin',
+    right : 'dataMax',
+    top : 'dataMax',
+    bottom : 'dataMin',
+    top2 : 'dataMax',
+    bottom2: 'dataMin',
     sourceToDisplay: "// promise code will appear here...\n// and the promise will be highlighted like this \n// for your convenience",
     loadedSources: {},
     highlightArea: "2",
     ogWindowLocation: window.location
   }
 }
+
+const getAxisYDomain = (from, to, ref, offset) => {
+	const refData = data.slice(from-1, to);
+  let [ bottom, top ] = [ refData[0][ref], refData[0][ref] ];
+  refData.forEach( d => {
+  	if ( d[ref] > top ) top = d[ref];
+    if ( d[ref] < bottom ) bottom = d[ref];
+  });
+  
+  return [ (bottom|0) - offset, (top|0) + offset ]
+};
 
 // This is the component that we want to modify --- this creates the visualization.
 class Main extends React.Component {
@@ -183,7 +202,7 @@ class Main extends React.Component {
 
   // For Zooming
   zoom() {  
-  	let { refAreaLeft, refAreaRight, data } = this.state;
+  	let { refAreaLeft, refAreaRight, displayData } = this.state;
 
 		if ( refAreaLeft === refAreaRight || refAreaRight === '' ) {
     	this.setState( () => ({
@@ -193,23 +212,38 @@ class Main extends React.Component {
     	return;
     }
 
+    console.log("refAreaLeft: " + refAreaLeft);
+
 		// xAxis domain
 	  if ( refAreaLeft > refAreaRight ) 
     		[ refAreaLeft, refAreaRight ] = [ refAreaRight, refAreaLeft ];
 
 		// yAxis domain
-    const [ bottom, top ] = getAxisYDomain( refAreaLeft, refAreaRight, 'cost', 1 );
-    const [ bottom2, top2 ] = getAxisYDomain( refAreaLeft, refAreaRight, 'impression', 50 );
+    const [ bottom, top ] = getAxisYDomain( refAreaLeft, refAreaRight, 'id', 1 );
     
     this.setState( () => ({
       refAreaLeft : '',
       refAreaRight : '',
-    	data : data.slice(),
+    	displayData : displayData.slice(),
       left : refAreaLeft,
       right : refAreaRight,
-      bottom, top, bottom2, top2
+      bottom : bottom,
+      top: top
     } ) );
   };
+
+  zoomOut() {
+  	const { displayData } = this.state;
+  	this.setState( () => ({
+      displayData : displayData.slice(),
+      refAreaLeft : '',
+      refAreaRight : '',
+      left : 'dataMin',
+      right : 'dataMax',
+      top : 'dataMax',
+      bottom : 'dataMin'
+    }) );
+  }
 
   handleAddSourceToDisplay(selectedList, selectedItem) {
     let displayMe = [];
@@ -687,16 +721,48 @@ class Main extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
+        <a
+          href="javascript: void(0);"
+          className="btn update"
+          onClick={this.zoomOut.bind( this )}
+        >
+          Zoom Out
+        </a>
         <BarChart width={600} height={300} data={this.state.displayData} layout='vertical'
-        onClick={this.clickOnPromiseInterval.bind(this)}>
-          {/* <CartesianGrid strokeDasharray="3 3" />
-          <Legend /> */}
-          <XAxis type="number" domain={this.state.minMaxTimeRange}/>
-          <YAxis type="category" dataKey="id"/>
+        // onClick={this.clickOnPromiseInterval.bind(this)}
+        onMouseDown = { (e) => {
+          this.setState({refAreaLeft:e.activePayload[0].payload.time[0]}) }
+        }
+        onMouseMove = { (e) => this.state.refAreaLeft && this.setState({refAreaRight:e.activePayload[0].payload.time[1]}) }
+        onMouseUp = { this.zoom.bind( this ) }
+        >
+          {/* <XAxis allowDataOverflow={true} dataKey="time" type="number" domain={this.state.minMaxTimeRange}/> */}
+          <XAxis allowDataOverflow={true} dataKey="time" type="number" domain={[this.state.left, this.state.right]}/>
+          <YAxis allowDataOverflow={true} type="category" dataKey="id" domain={[this.state.bottom, this.state.top]} yAxisId="0"/>
+          {/* <YAxis orientation="right" allowDataOverflow={true} type="category" dataKey="id" domain={[this.state.bottom2, this.state.top2]} yAxisId="1"/> */}
+          {/* <XAxis 
+              allowDataOverflow={true}
+              dataKey="time"
+              domain={[this.state.left, this.state.right]}
+              type="number"
+            />
+            <YAxis 
+              allowDataOverflow={true}
+              domain={[this.state.bottom, this.state.top]}
+              dataKey="id"
+              type="number"
+              yAxisId="1"
+             />
+            <YAxis 
+              orientation="right"
+              allowDataOverflow={true}
+              domain={[this.state.bottom2, this.state.top2]}
+              dataKey="id"
+              type="number"
+              yAxisId="2"
+             />  */}
           <Tooltip content=<PromiseIntervalLabel/>/>
-          <Bar dataKey="time" fill="#8884d8" 
-          // onClick={this.clickOnPromiseInterval.bind(this)}
-          />
+          <Bar dataKey="time" fill="#8884d8" onClick={this.clickOnPromiseInterval.bind(this)}/>
         </BarChart>
         {/* <VictoryChart
           style={{parent: {maxWidth: "70%"}}}
