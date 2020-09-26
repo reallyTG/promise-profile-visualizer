@@ -126,7 +126,7 @@ function getInitialStateFromData(data) {
     regexFilterOut: "test",
     theData: data,
     displayData: data,
-    sourceSelectorList: initDropdownItems,
+    sourceSelectorList: getSourcesFromData(data),
     filterBySelectedSource: false,
     filterByElapsedTime: false,
     filesToFilterIn: [],
@@ -140,8 +140,6 @@ function getInitialStateFromData(data) {
     right : 'dataMax',
     top : 'dataMax',
     bottom : 'dataMin',
-    top2 : 'dataMax',
-    bottom2: 'dataMin',
     sourceToDisplay: "// promise code will appear here...\n// and the promise will be highlighted like this \n// for your convenience",
     loadedSources: {},
     highlightArea: "2",
@@ -149,8 +147,17 @@ function getInitialStateFromData(data) {
   }
 }
 
-const getAxisYDomain = (from, to, ref, offset) => {
-	const refData = data.slice(from-1, to);
+const getAxisYDomain = (data, from, to, ref, offset) => {
+  console.log("from: " + from);
+  console.log("to: " + to);
+  console.log("ref: " + ref);
+  console.log("offset: " + offset);
+
+  const refData = data.slice(from-1, to);
+  
+  console.log("refData:")
+  console.log(refData);
+
   let [ bottom, top ] = [ refData[0][ref], refData[0][ref] ];
   refData.forEach( d => {
   	if ( d[ref] > top ) top = d[ref];
@@ -219,7 +226,7 @@ class Main extends React.Component {
     		[ refAreaLeft, refAreaRight ] = [ refAreaRight, refAreaLeft ];
 
 		// yAxis domain
-    const [ bottom, top ] = getAxisYDomain( refAreaLeft, refAreaRight, 'id', 1 );
+    const [ bottom, top ] = getAxisYDomain( displayData, refAreaLeft, refAreaRight, 'id', 1 );
     
     this.setState( () => ({
       refAreaLeft : '',
